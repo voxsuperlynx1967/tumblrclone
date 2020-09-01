@@ -3,8 +3,11 @@ import Cookies from 'js-cookie';
 const SET_USER = 'auth/SET_USER';
 
 const setUser = (user) => {
-  type: SET_USER,
-  user
+  return {
+    type: SET_USER,
+    user
+  }
+
 
 }
 export const login = (username, password) => {
@@ -21,8 +24,17 @@ export const login = (username, password) => {
     });
     res.data = await res.json();
     if (res.ok) {
-      dispatch(serUser(res.data))
+      dispatch(setUser(res.data))
     }
     return res;
+  }
+}
+
+export default function authReducer(state={}, action) {
+  switch(action.type) {
+    case SET_USER:
+      return action.user;
+    default:
+      return state;
   }
 }
