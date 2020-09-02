@@ -9,6 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AuthTextField from '../components/auth/AuthTextField';
 import { NavLink } from 'react-router-dom';
 import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   container: {
@@ -27,17 +28,17 @@ function SignupPage() {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
   const classes = useStyles();
+  const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(signup( email, password, username ));
-
-
+    await dispatch(signup( email, password, username ));
+    history.push("/");
   }
 
 
   return (
-    <>
+    <div class="signup-wrapper">
       {/* <NavBar/> */}
       <Container
         classes={{ root: classes.container }}
@@ -78,7 +79,7 @@ function SignupPage() {
           </NavLink>
         </div>
       </Container>
-    </>
+    </div>
   )
 }
 

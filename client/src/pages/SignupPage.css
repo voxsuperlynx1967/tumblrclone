@@ -2,8 +2,10 @@ svg {
   height: 125px;
 }
 
-body {
+.signup-wrapper {
   background-image: url("../components/images/guyfieri.gif");
+  height: 100vw;
+  width: 100%;
 }
 
 form {

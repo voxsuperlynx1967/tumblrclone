@@ -2,8 +2,10 @@ svg {
   height: 125px;
 }
 
-body {
-  background-image: url("../components/images/guyfieri.gif");
+.login-wrapper {
+  background-image: url("../components/images/guyfieriart.jpg");
+  height: 100vw;
+  width: 100%;
 }
 
 form {

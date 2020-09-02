@@ -9,6 +9,7 @@ import './LoginPage.css';
 import { makeStyles } from "@material-ui/core/styles";
 import AuthTextField from '../components/auth/AuthTextField';
 // import NavBar from '../components/auth/NavBar';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   container: {
@@ -24,18 +25,18 @@ function LoginPage() {
   const currentUserId = useSelector(state => state.auth.id);
   const dispatch = useDispatch();
   const classes = useStyles();
+  const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(login(email, password));
-
-
+    await dispatch(login(email, password));
+    history.push("/");
   }
 
 
   if (currentUserId) return <Redirect to="/" />;
   return (
-    <>
+    <div class="login-wrapper">
       {/* <NavBar/> */}
       <Container
         classes={{ root: classes.container }}
@@ -57,8 +58,10 @@ function LoginPage() {
           <AuthSubmitButton>Log in</AuthSubmitButton>
         </form>
       </Container>
-    </>
+
+    </div>
   )
+
 }
 
 

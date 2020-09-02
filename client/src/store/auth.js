@@ -36,7 +36,9 @@ export const login = (email, password) => {
       body: JSON.stringify({ email, password })
 
     });
+
     res.data = await res.json();
+    debugger
     if (res.ok) {
       dispatch(setUser(res.data))
     }
@@ -44,7 +46,7 @@ export const login = (email, password) => {
   }
 }
 
-export const logout = () => { //no payload, body, parameter for url path
+export const logout = () => {
   return async dispatch => {
     const res = await fetch('/api/session', {
 
@@ -69,7 +71,6 @@ export const signup = (email, password, username) => {
       },
       body: JSON.stringify({ email, password, username})
     });
-
     const data = await res.json();
     dispatch(newUser(data));
     res.data = data;

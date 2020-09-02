@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { Redirect } from 'react-router-dom'
 
 
 const colors = {
@@ -29,7 +30,8 @@ function AuthSubmitButton(props) {
       variant="contained"
       size="large"
       {...props}
-    />
+      >
+    </Button>
   )
 
 }
