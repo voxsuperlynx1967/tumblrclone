@@ -3,7 +3,7 @@ svg {
 }
 
 body {
-  background-image: url("../components/images/guyfieri.jpg");
+  background-image: url("../components/images/guyfieri.gif");
 }
 
 form {
@@ -48,4 +48,11 @@ span {
 
 #trending {
   font-weight: bold;
+  padding-left: 10px;
+}
+
+#navtoexplore {
+  padding-top: 10px;
+  display: flex;
+  text-decoration: none;
 }

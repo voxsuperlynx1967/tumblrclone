@@ -8,7 +8,7 @@ import './SignupPage.css';
 import { makeStyles } from "@material-ui/core/styles";
 import AuthTextField from '../components/auth/AuthTextField';
 import { NavLink } from 'react-router-dom';
-import ExploreOutlinedIcon from '@material-ui/icons/Explore';
+import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined';
 
 const useStyles = makeStyles({
   container: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     alignItems: 'center',
   },
   exploreIcon: {
-    fill: "white",
+    color: "white",
   }
 })
 
@@ -70,10 +70,10 @@ function SignupPage() {
           <AuthSubmitButton>Sign up</AuthSubmitButton>
         </form>
         <div id="expore">
-          <NavLink to="/">
+          <NavLink id ="navtoexplore" to="/">
             <ExploreOutlinedIcon classes={{ root: classes.exploreIcon }}/>
             <span id="trending">
-              Here's whats trending
+              Here's what's trending
             </span>
           </NavLink>
         </div>
