@@ -2,6 +2,7 @@ import Cookies from 'js-cookie';
 
 const SET_USER = 'auth/SET_USER';
 const REMOVE_USER = 'authentication/REMOVE_USER';
+const SIGNUP ='authentication/SIGNUP';
 
 export const setUser = (user) => {
   return {
@@ -17,6 +18,12 @@ export const removeUser = () => {
     type: REMOVE_USER
   }
 }
+
+const newUser = (user) => ({
+  type: SIGNUP,
+  user
+})
+
 export const login = (email, password) => {
   return async dispatch => {
     const res = await fetch('/api/session', {
@@ -52,12 +59,29 @@ export const logout = () => { //no payload, body, parameter for url path
   }
 }
 
+export const signup = (email, password, username) => {
+  return async (dispatch) => {
+    const res = await fetch('api/users', {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email, password, username})
+    });
+
+    const data = await res.json();
+    dispatch(newUser(data));
+    res.data = data;
+    return res;
+  }
+}
+
 window.login = login;
 window.logout = logout;
 
 export default function authReducer(state={}, action) {
   switch(action.type) {
-    case SET_USER:
+    case SET_USER || SIGNUP:
       return action.user;
     case REMOVE_USER:
       return {};
