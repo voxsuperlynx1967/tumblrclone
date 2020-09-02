@@ -7,12 +7,17 @@ import AuthSubmitButton from '../components/auth/AuthSubmitButton';
 import './SignupPage.css';
 import { makeStyles } from "@material-ui/core/styles";
 import AuthTextField from '../components/auth/AuthTextField';
+import { NavLink } from 'react-router-dom';
+import ExploreOutlinedIcon from '@material-ui/icons/Explore';
 
 const useStyles = makeStyles({
   container: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+  },
+  exploreIcon: {
+    fill: "white",
   }
 })
 
@@ -39,6 +44,12 @@ function SignupPage() {
         fixed
         maxWidth="sm">
         <YumblrLogo/>
+        <span id="bigspan">
+          <span>Come for what you crave.
+          </span>
+          <span>Stay for what you devour.
+          </span>
+        </span>
         <form onSubmit={handleSubmit}>
           <AuthTextField id="textfield1"
             placeholder="Email"
@@ -58,6 +69,14 @@ function SignupPage() {
             />
           <AuthSubmitButton>Sign up</AuthSubmitButton>
         </form>
+        <div id="expore">
+          <NavLink to="/">
+            <ExploreOutlinedIcon classes={{ root: classes.exploreIcon }}/>
+            <span id="trending">
+              Here's whats trending
+            </span>
+          </NavLink>
+        </div>
       </Container>
     </>
   )
