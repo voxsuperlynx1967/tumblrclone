@@ -4,9 +4,36 @@ import Pages from './pages/Pages';
 import { setUser } from './store/auth';
 import { useDispatch } from 'react-redux';
 import { CssBaseline } from '@material-ui/core';
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 
 
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiInputBase: {
+        input: {
+          background: "white",
+          borderRadius: "5px",
+          font: "15px Helvetica Neue"
+        }
+    },
+    MuiButtonBase: {
+      root: {
+        margin: "20px",
+      },
+
+    },
+    MuiButton: {
+      label: {
+        textTransform: "none",
+        font: "15px Helvetica Neue",
+        fontWeight: "bold",
+        padding: "5px"
+      }
+    }
+  }
+})
 
 
 
@@ -31,10 +58,12 @@ function App() {
 
   return (
     <>
-      <CssBaseline />
-      <BrowserRouter>
-          <Pages />
-      </BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <BrowserRouter>
+            <Pages />
+        </BrowserRouter>
+      </ThemeProvider>
     </>
   );
 }
