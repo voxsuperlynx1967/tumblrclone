@@ -20,7 +20,7 @@ const theme = createMuiTheme({
     },
     MuiButtonBase: {
       root: {
-        margin: "20px",
+        margin: "10px",
       },
 
     },
