@@ -43,12 +43,12 @@ function LoginPage() {
         maxWidth="sm">
         <YumblrLogo/>
         <form onSubmit={handleSubmit}>
-          <AuthTextField
+          <AuthTextField id="textfield1"
             placeholder="Email"
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
-          <AuthTextField
+          <AuthTextField id="textfield2"
             placeholder="Password"
             value={password}
             onChange={e => setPassword(e.target.value)}
