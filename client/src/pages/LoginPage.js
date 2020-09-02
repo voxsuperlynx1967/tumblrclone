@@ -42,9 +42,6 @@ function LoginPage() {
         fixed
         maxWidth="sm">
         <YumblrLogo/>
-        <h1>Come for what you crave.
-            Stay for what you eat.
-        </h1>
         <form onSubmit={handleSubmit}>
           <AuthTextField id="textfield1"
             placeholder="Email"
