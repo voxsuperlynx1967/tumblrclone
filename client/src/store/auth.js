@@ -1,8 +1,8 @@
 import Cookies from 'js-cookie';
 
-const SET_USER = 'auth/SET_USER';
+const SET_USER = 'authentication/SET_USER';
 const REMOVE_USER = 'authentication/REMOVE_USER';
-const SIGNUP ='authentication/SIGNUP';
+const SIGNUP ='SIGNUP';
 
 export const setUser = (user) => {
   return {
@@ -64,7 +64,8 @@ export const signup = (email, password, username) => {
     const res = await fetch('api/users', {
       method: "post",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
       },
       body: JSON.stringify({ email, password, username})
     });

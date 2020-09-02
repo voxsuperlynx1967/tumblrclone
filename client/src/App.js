@@ -16,7 +16,6 @@ const theme = createMuiTheme({
           background: "white",
           font: "15px Helvetica Neue",
           padding: "20px",
-          disableUnderline: true,
         }
     },
     MuiButtonBase: {

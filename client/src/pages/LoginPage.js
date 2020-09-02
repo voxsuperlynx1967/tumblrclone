@@ -49,6 +49,7 @@ function LoginPage() {
             onChange={e => setEmail(e.target.value)}
           />
           <AuthTextField id="textfield2"
+            type="password"
             placeholder="Password"
             value={password}
             onChange={e => setPassword(e.target.value)}
