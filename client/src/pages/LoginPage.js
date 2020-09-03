@@ -31,7 +31,7 @@ const theme = createMuiTheme({
     },
     MuiButtonBase: {
       root: {
-        margin: "20px",
+        margin: "10px 0px 0px 10px",
       },
     },
     MuiButton: {
@@ -56,6 +56,11 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(login(email, password));
+    history.push("/dashboard");
+  }
+  const handleDemoSubmit = async (e) => {
+    e.preventDefault();
+    await dispatch(login("flavor@example.com", "password"));
     history.push("/dashboard");
   }
 
@@ -83,6 +88,9 @@ function LoginPage() {
               onChange={e => setPassword(e.target.value)}
               />
             <AuthSubmitButton>Log in</AuthSubmitButton>
+            <form onSubmit={handleDemoSubmit}>
+              <AuthSubmitButton>Log in as demo user</AuthSubmitButton>
+            </form>
           </ThemeProvider>
         </form>
       </Container>
