@@ -38,7 +38,6 @@ export const login = (email, password) => {
     });
 
     res.data = await res.json();
-    debugger
     if (res.ok) {
       dispatch(setUser(res.data))
     }
@@ -47,19 +46,18 @@ export const login = (email, password) => {
 }
 
 export const logout = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     const res = await fetch('/api/session', {
-
       method: "delete",
-
+      headers: {
+        "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+      },
     });
+    if (res.ok) dispatch(removeUser());
     res.data = await res.json();
-    if (res.ok) {
-      dispatch(removeUser(res.data))
-    }
     return res;
-  }
-}
+  };
+};
 
 export const signup = (email, password, username) => {
   return async (dispatch) => {
@@ -72,6 +70,7 @@ export const signup = (email, password, username) => {
       body: JSON.stringify({ email, password, username})
     });
     const data = await res.json();
+    debugger
     dispatch(newUser(data));
     res.data = data;
     return res;

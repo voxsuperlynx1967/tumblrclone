@@ -47,7 +47,7 @@ router.put(
   })
 );
 
-router.delete('/session', asyncHandler(async(req,res) => {
+router.delete('/', asyncHandler(async(req,res) => {
   res.clearCookie('token');
   res.json({ message: 'success' });
 }));

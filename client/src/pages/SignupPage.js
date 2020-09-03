@@ -10,6 +10,7 @@ import AuthTextField from '../components/auth/AuthTextField';
 import { NavLink } from 'react-router-dom';
 import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined';
 import { useHistory } from "react-router-dom";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   container: {
@@ -21,6 +22,31 @@ const useStyles = makeStyles({
     color: "white",
   }
 })
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiInputBase: {
+      input: {
+        background: "white",
+        font: "15px Helvetica Neue",
+        padding: "20px",
+      }
+    },
+    MuiButtonBase: {
+      root: {
+        margin: "20px",
+      },
+    },
+    MuiButton: {
+      label: {
+        textTransform: "none",
+        font: "15px Helvetica Neue",
+        fontWeight: "bold",
+        padding: "10px"
+      }
+    }
+  },
+});
 
 function SignupPage() {
   const [email, setEmail] = useState('');
@@ -52,23 +78,27 @@ function SignupPage() {
           </span>
         </span>
         <form onSubmit={handleSubmit}>
-          <AuthTextField id="textfield1"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-          <AuthTextField id="textfield2"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
+          <ThemeProvider theme={theme}>
+            <AuthTextField id="textfield1"
+              placeholder="Email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
             />
-          <AuthTextField id="textfield3"
-            placeholder="Username"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-            />
-          <AuthSubmitButton>Sign up</AuthSubmitButton>
+
+            <AuthTextField id="textfield2"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              />
+            <AuthTextField id="textfield3"
+              placeholder="Username"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              />
+
+            <AuthSubmitButton>Sign up</AuthSubmitButton>
+          </ThemeProvider>
         </form>
         <div id="expore">
           <NavLink id ="navtoexplore" to="/">

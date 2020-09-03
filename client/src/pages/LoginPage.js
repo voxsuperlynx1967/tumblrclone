@@ -10,14 +10,40 @@ import { makeStyles } from "@material-ui/core/styles";
 import AuthTextField from '../components/auth/AuthTextField';
 // import NavBar from '../components/auth/NavBar';
 import { useHistory } from "react-router-dom";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   container: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-  }
+  },
 })
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiInputBase: {
+      input: {
+        background: "white",
+        font: "15px Helvetica Neue",
+        padding: "20px",
+      }
+    },
+    MuiButtonBase: {
+      root: {
+        margin: "20px",
+      },
+    },
+    MuiButton: {
+      label: {
+        textTransform: "none",
+        font: "15px Helvetica Neue",
+        fontWeight: "bold",
+        padding: "10px"
+      }
+    }
+  },
+});
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -30,7 +56,7 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(login(email, password));
-    history.push("/");
+    history.push("/dashboard");
   }
 
 
@@ -44,18 +70,20 @@ function LoginPage() {
         maxWidth="sm">
         <YumblrLogo/>
         <form onSubmit={handleSubmit}>
-          <AuthTextField id="textfield1"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-          <AuthTextField id="textfield2"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
+          <ThemeProvider theme={theme}>
+            <AuthTextField id="textfield1"
+              placeholder="Email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
             />
-          <AuthSubmitButton>Log in</AuthSubmitButton>
+            <AuthTextField id="textfield2"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              />
+            <AuthSubmitButton>Log in</AuthSubmitButton>
+          </ThemeProvider>
         </form>
       </Container>
 

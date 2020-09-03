@@ -9,31 +9,16 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 
 
-const theme = createMuiTheme({
-  overrides: {
-    MuiInputBase: {
-        input: {
-          background: "white",
-          font: "15px Helvetica Neue",
-          padding: "20px",
-        }
-    },
-    MuiButtonBase: {
-      root: {
-        margin: "10px",
-      },
+// const theme = createMuiTheme({
+//   overrides: {
+//     // MuiButtonBase: {
+//     //   root: {
+//     //     margin: "10px",
+//     //   },
 
-    },
-    MuiButton: {
-      label: {
-        textTransform: "none",
-        font: "15px Helvetica Neue",
-        fontWeight: "bold",
-        padding: "5px"
-      }
-    }
-  }
-})
+//     // },
+//   }
+// })
 
 
 
@@ -58,12 +43,12 @@ function App() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+      {/* <ThemeProvider theme={theme}> */}
         <CssBaseline />
         <BrowserRouter>
             <Pages />
         </BrowserRouter>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </>
   );
 }
