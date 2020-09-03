@@ -4,6 +4,9 @@ svg {
 
 .login-wrapper {
   background-image: url("../components/images/guyfieriart.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 0%;
   height: 100vw;
   width: 100%;
 }

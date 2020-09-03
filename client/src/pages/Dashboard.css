@@ -1,3 +1,25 @@
 #yumblrbar {
   background: #001935
 }
+#yumblrbar1 {
+  background: rgba(0,0,0,0);
+}
+
+#yumblrbar2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#menuitem {
+  font: 14px Favorit  #000000A6;
+
+}
+#buttoncontainer {
+  background: #00000012;
+  display: flex;
+}
+
+#pad {
+  padding: 0px 20px 0px;
+  color: rgba(0,0,0,0);
+}

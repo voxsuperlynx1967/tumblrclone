@@ -4,6 +4,9 @@ svg {
 
 .signup-wrapper {
   background-image: url("../components/images/guyfieri.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   height: 100vw;
   width: 100%;
 }

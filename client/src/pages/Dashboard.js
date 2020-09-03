@@ -15,20 +15,35 @@ import { useDispatch } from 'react-redux';
 import './Dashboard.css';
 import YumblrLogoSmall from '../components/auth/YumblrLogoSmall';
 import CreateIcon from '@material-ui/icons/Create';
-
-
+import Button from '@material-ui/core/Button';
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+const theme = createMuiTheme({
+  overrides: {
+    MuiButton: {
+      label: {
+        textTransform: "none",
+        font: "14px Helvetica Neue",
+        color: "#000000A6",
+        textAlign: "right",
+      }
+    }
+  },
+});
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    height: "100%",
   },
   title: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+  },
+  menu: {
+    background: "#00000012",
   },
   search: {
 
@@ -120,14 +135,29 @@ export default function Dashboard() {
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      elevation={0}
+      getContentAnchorEl={null}
+      anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'center',
+      }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'center',
+    }}
       id={menuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMenuOpen}
       onClose={handleMenuClose}
+
     >
-      <MenuItem onClick={handleSubmit}>Log out</MenuItem>
+      <div id="buttoncontainer">
+        <ThemeProvider theme={theme}>
+        <Button id="menuitem">Account</Button>
+        <span id="pad">................</span>
+        <Button id="menuitem" onClick={handleSubmit}>Log out</Button>
+        </ThemeProvider>
+      </div>
     </Menu>
   );
 
@@ -142,22 +172,6 @@ export default function Dashboard() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      {/* <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem> */}
-      {/* <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -177,17 +191,6 @@ export default function Dashboard() {
       <AppBar id="yumblrbar" position="static">
         <Toolbar>
         <YumblrLogoSmall class="yumblrlogo"/>
-          {/* <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton> */}
-          {/* <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography> */}
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -203,16 +206,6 @@ export default function Dashboard() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            {/* <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton> */}
-            {/* <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton> */}
             <IconButton
               edge="end"
               aria-label="account of current user"

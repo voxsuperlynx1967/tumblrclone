@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../store/auth';
 import { Container } from '@material-ui/core';
 import YumblrLogo from '../components/auth/YumblrLogo';
@@ -11,6 +11,8 @@ import { NavLink } from 'react-router-dom';
 import ExploreOutlinedIcon from '@material-ui/icons/ExploreOutlined';
 import { useHistory } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { Redirect } from 'react-router-dom'
+import SignupNavBar from "../components/auth/SignupNavBar";
 
 const useStyles = makeStyles({
   container: {
@@ -55,17 +57,18 @@ function SignupPage() {
   const dispatch = useDispatch();
   const classes = useStyles();
   const history = useHistory();
+  const currentUserId = useSelector(state => state.auth.id);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(signup( email, password, username ));
-    history.push("/");
+    history.push("/dashboard");
   }
 
-
+  if (currentUserId) return <Redirect to="/dashboard" />;
   return (
     <div class="signup-wrapper">
-      {/* <NavBar/> */}
+      <SignupNavBar/>
       <Container
         classes={{ root: classes.container }}
         fixed

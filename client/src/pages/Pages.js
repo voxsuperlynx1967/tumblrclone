@@ -8,6 +8,8 @@ import SignupPage from './SignupPage';
 
 import Dashboard from './Dashboard';
 
+import Splash from './Spash';
+
 export default function Pages() {
   return (
     <>
@@ -16,9 +18,7 @@ export default function Pages() {
       <Route path="/signup" component={SignupPage} />
       <Route path="/dashboard" component={Dashboard} />
 
-      <Route exact path="/">
-        <h1>My Home Page</h1>
-      </Route>
+      <Route exact path="/" component={Splash} />
     </>
   )
 }

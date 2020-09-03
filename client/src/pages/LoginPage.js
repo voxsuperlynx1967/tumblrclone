@@ -11,6 +11,7 @@ import AuthTextField from '../components/auth/AuthTextField';
 // import NavBar from '../components/auth/NavBar';
 import { useHistory } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import LoginNavBar from "../components/auth/LoginNavBar";
 
 const useStyles = makeStyles({
   container: {
@@ -65,37 +66,41 @@ function LoginPage() {
   }
 
 
-  if (currentUserId) return <Redirect to="/" />;
-  return (
-    <div class="login-wrapper">
-      {/* <NavBar/> */}
-      <Container
-        classes={{ root: classes.container }}
-        fixed
-        maxWidth="sm">
-        <YumblrLogo id="yumblrlogo1"/>
-        <form onSubmit={handleSubmit}>
-          <ThemeProvider theme={theme}>
-            <AuthTextField id="textfield1"
-              placeholder="Email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
-            <AuthTextField id="textfield2"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              />
-            <AuthSubmitButton>Log in</AuthSubmitButton>
-            <form onSubmit={handleDemoSubmit}>
-              <AuthSubmitButton>Log in as demo user</AuthSubmitButton>
-            </form>
-          </ThemeProvider>
-        </form>
-      </Container>
 
-    </div>
+  if (currentUserId) return <Redirect to="/dashboard" />;
+  return (
+    <>
+      <div class="login-wrapper">
+        <LoginNavBar/>
+
+        <Container
+          classes={{ root: classes.container }}
+          fixed
+          maxWidth="sm">
+          <YumblrLogo id="yumblrlogo1"/>
+          <form onSubmit={handleSubmit}>
+            <ThemeProvider theme={theme}>
+              <AuthTextField id="textfield1"
+                placeholder="Email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+              <AuthTextField id="textfield2"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                />
+              <AuthSubmitButton>Log in</AuthSubmitButton>
+              <form onSubmit={handleDemoSubmit}>
+                <AuthSubmitButton>Log in as demo user</AuthSubmitButton>
+              </form>
+            </ThemeProvider>
+          </form>
+        </Container>
+
+      </div>
+    </>
   )
 
 }
