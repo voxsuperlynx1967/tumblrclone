@@ -175,7 +175,7 @@ export default function Dashboard() {
     <div className={classes.grow}>
       <AppBar id="yumblrbar" position="static">
         <Toolbar>
-        <YumblrLogoSmall id="yumblrlogo"/>
+        <YumblrLogoSmall class="yumblrlogo"/>
           {/* <IconButton
             edge="start"
             className={classes.menuButton}

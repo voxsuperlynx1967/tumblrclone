@@ -70,7 +70,7 @@ function SignupPage() {
         classes={{ root: classes.container }}
         fixed
         maxWidth="sm">
-        <YumblrLogo/>
+        <YumblrLogo id="yumblrlogo1"/>
         <span id="bigspan">
           <span>Come for what you crave.
           </span>

@@ -68,7 +68,7 @@ function LoginPage() {
         classes={{ root: classes.container }}
         fixed
         maxWidth="sm">
-        <YumblrLogo/>
+        <YumblrLogo id="yumblrlogo1"/>
         <form onSubmit={handleSubmit}>
           <ThemeProvider theme={theme}>
             <AuthTextField id="textfield1"
