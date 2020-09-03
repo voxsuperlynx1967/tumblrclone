@@ -14,6 +14,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import './Dashboard.css';
 import YumblrLogoSmall from '../components/auth/YumblrLogoSmall';
+import CreateIcon from '@material-ui/icons/Create';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -219,10 +220,20 @@ export default function Dashboard() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
-            >
-              <PersonIcon />
+            > <PersonIcon />
             </IconButton>
+            <IconButton
+              edge="end"
+              aria-label="create a post"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              color="inherit"
+            > <CreateIcon/>
+            </IconButton>
+
+
           </div>
+
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
