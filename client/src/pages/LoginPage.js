@@ -8,7 +8,6 @@ import AuthSubmitButton from '../components/auth/AuthSubmitButton';
 import './LoginPage.css';
 import { makeStyles } from "@material-ui/core/styles";
 import AuthTextField from '../components/auth/AuthTextField';
-// import NavBar from '../components/auth/NavBar';
 import { useHistory } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import LoginNavBar from "../components/auth/LoginNavBar";

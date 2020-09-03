@@ -9,18 +9,6 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 
 
-// const theme = createMuiTheme({
-//   overrides: {
-//     // MuiButtonBase: {
-//     //   root: {
-//     //     margin: "10px",
-//     //   },
-
-//     // },
-//   }
-// })
-
-
 
 function App() {
   const [loading, setLoading] = useState(true);
