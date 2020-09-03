@@ -71,9 +71,6 @@ export const signup = (email, password, username) => {
   }
 }
 
-window.login = login;
-window.logout = logout;
-
 export default function authReducer(state={}, action) {
   switch(action.type) {
     case SET_USER:

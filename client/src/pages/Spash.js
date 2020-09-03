@@ -6,7 +6,6 @@ import YumblrLogo from '../components/auth/YumblrLogo';
 import AuthSubmitButton from '../components/auth/AuthSubmitButton';
 import './SignupPage.css';
 import { makeStyles } from "@material-ui/core/styles";
-// import NavBar from '../components/auth/NavBar';
 import { useHistory } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { NavLink } from 'react-router-dom';
@@ -69,7 +68,6 @@ function Splash() {
   if (currentUserId) return <Redirect to="/dashboard" />;
   return (
     <div class="signup-wrapper">
-      {/* <NavBar/> */}
       <Container
         classes={{ root: classes.container }}
         fixed
