@@ -2,14 +2,7 @@ import React from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import PersonIcon from '@material-ui/icons/Person';
 import { useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux';
 import '../../pages/Dashboard.css';
 import YumblrLogoSmall from './YumblrLogoSmall';
 import Button from '@material-ui/core/Button';
@@ -85,10 +78,6 @@ export default function LoginNavBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  // const isMenuOpen = Boolean(anchorEl);
-  // const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  // const dispatch = useDispatch();
   const history = useHistory();
   const signupclick = async (e) => {
     e.preventDefault();
@@ -96,72 +85,11 @@ export default function LoginNavBar() {
   }
 
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   await dispatch(logout());
-  //   history.push("/");
-  // }
-
-
-
-  // const menuId = 'primary-search-account-menu';
-  // const renderMenu = (
-  //   <Menu
-  //     anchorEl={anchorEl}
-  //     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-  //     id={menuId}
-  //     keepMounted
-  //     transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-  //     open={isMenuOpen}
-  //     onClose={handleMenuClose}
-  //   >
-  //     <MenuItem onClick={handleSubmit}>Log out</MenuItem>
-  //   </Menu>
-  // );
-
-  // const mobileMenuId = 'primary-search-account-menu-mobile';
-  // const renderMobileMenu = (
-  //   <Menu
-  //     anchorEl={mobileMoreAnchorEl}
-  //     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-  //     id={mobileMenuId}
-  //     keepMounted
-  //     transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-  //     open={isMobileMenuOpen}
-  //     onClose={handleMobileMenuClose}
-  //   >
-  //     <MenuItem onClick={handleProfileMenuOpen}>
-  //       <IconButton
-  //         aria-label="account of current user"
-  //         aria-controls="primary-search-account-menu"
-  //         aria-haspopup="true"
-  //         color="inherit"
-  //       >
-  //         <PersonIcon />
-  //       </IconButton>
-  //       <p>Profile</p>
-  //     </MenuItem>
-  //   </Menu>
-  // );
-
   return (
     <div className={classes.grow}>
       <AppBar id="yumblrbar1" position="static">
         <Toolbar id="yumblrbar2" >
         <YumblrLogoSmall class="yumblrlogo"/>
-          {/* <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search Yumblr"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div> */}
           <Button
             onClick={signupclick}
           >Log in</Button>
