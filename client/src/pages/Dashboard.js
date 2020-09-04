@@ -17,6 +17,8 @@ import YumblrLogoSmall from '../components/auth/YumblrLogoSmall';
 import CreateIcon from '@material-ui/icons/Create';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import BlogActionsBar from '../components/post/BlogActionsBar';
+import { Container } from '@material-ui/core';
 const theme = createMuiTheme({
   overrides: {
     MuiButton: {
@@ -187,6 +189,7 @@ export default function Dashboard() {
   );
 
   return (
+    <>
     <div className={classes.grow}>
       <AppBar id="yumblrbar" position="static">
         <Toolbar>
@@ -243,5 +246,7 @@ export default function Dashboard() {
       {renderMobileMenu}
       {renderMenu}
     </div>
+    <BlogActionsBar/>
+  </>
   );
 }
