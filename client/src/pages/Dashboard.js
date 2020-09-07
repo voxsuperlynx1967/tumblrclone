@@ -28,7 +28,7 @@ const theme = createMuiTheme({
         color: "#000000A6",
         textAlign: "right",
       }
-    }
+    },
   },
 });
 const useStyles = makeStyles((theme) => ({
@@ -190,63 +190,66 @@ export default function Dashboard() {
 
   return (
     <>
-    <div className={classes.grow}>
-      <AppBar id="yumblrbar" position="static">
-        <Toolbar>
-        <YumblrLogoSmall class="yumblrlogo"/>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search Yumblr"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            > <PersonIcon />
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="create a post"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              color="inherit"
-            > <CreateIcon/>
-            </IconButton>
+      <div class="page">
+
+        <div className={classes.grow}>
+          <AppBar id="yumblrbar" position="static">
+            <Toolbar>
+            <YumblrLogoSmall class="yumblrlogo"/>
+              <div className={classes.search}>
+                <div className={classes.searchIcon}>
+                  <SearchIcon />
+                </div>
+                <InputBase
+                  placeholder="Search Yumblr"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                  inputProps={{ 'aria-label': 'search' }}
+                />
+              </div>
+              <div className={classes.grow} />
+              <div className={classes.sectionDesktop}>
+                <IconButton
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
+                > <PersonIcon />
+                </IconButton>
+                <IconButton
+                  edge="end"
+                  aria-label="create a post"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  color="inherit"
+                > <CreateIcon/>
+                </IconButton>
 
 
-          </div>
+              </div>
 
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
+              <div className={classes.sectionMobile}>
+                <IconButton
+                  aria-label="show more"
+                  aria-controls={mobileMenuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                  color="inherit"
+                >
+                  <MoreIcon />
+                </IconButton>
+              </div>
+            </Toolbar>
+          </AppBar>
+          {renderMobileMenu}
+          {renderMenu}
+        </div>
+        <BlogActionsBar/>
     </div>
-    <BlogActionsBar/>
   </>
   );
 }

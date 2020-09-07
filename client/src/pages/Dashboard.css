@@ -24,3 +24,7 @@
   padding: 0px 20px 0px;
   color: rgba(0,0,0,0);
 }
+
+.page {
+  background-color: red;
+}

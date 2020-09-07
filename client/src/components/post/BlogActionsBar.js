@@ -7,24 +7,36 @@ import './BlogActionsBar.css';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-
+import SettingsIcon from '@material-ui/icons/Settings';
+import LanguageIcon from '@material-ui/icons/Language';
 const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
+    height: "10%",
+    width: "70%",
+    position: "fixed", /* or absolute */
+    top: "20%",
+    left: "50%",
   },
   modal: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    fontFamily: "Helvetica Neue,HelveticaNeue,Helvetica,Arial,sans-serif;",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    padding: "0px",
+    width: "50%",
+    height: "50%",
   },
+  muiButton: {
+    background: "lightblue",
+  }
 }));
 
 
@@ -50,6 +62,20 @@ function BlogActionsBar() {
     setOpen1(false);
   };
 
+  const iconClick = () => {
+    const g = document.querySelector(".photoupload");
+    const x = document.getElementById("urlicon");
+    x.style.display = "none";
+    const photolabel = document.getElementById("photolabel");
+    photolabel.style.display = "none";
+    const y = document.createElement("input")
+    y.classList.add("yourtext");
+    y.placeholder = "Paste a url"
+    g.appendChild(y);
+    g.style.background = "white";
+  };
+
+
   return (
     <Container classes={{ root: classes.container }}>
         <AddAPhotoIcon
@@ -72,8 +98,38 @@ function BlogActionsBar() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Upload photo</h2>
-            <p id="transition-modal-description">form</p>
+            <div className = "tubmlrpoststyle">
+              <div className = "formtitlebar">
+                <label>
+                  Username
+                </label>
+                <SettingsIcon />
+              </div>
+                <form>
+                  <div className="photoupload">
+                    <LanguageIcon id="urlicon" onClick={iconClick}/>
+                    <label id="photolabel">Add photo from web</label>
+                  </div>
+                  {/* <form>
+                    <label>
+                      Image URL
+                      <input type="text" name="imageurl" />
+                    </label>
+                    <label>
+                      Caption
+                      <input type="text" name="caption" />
+                    </label>
+                  </form> */}
+                  <div className="bottombar">
+                    <button className="close">
+                      Close
+                    </button>
+                    <button className="post" type="submit">
+                      Post
+                    </button>
+                  </div>
+                </form>
+            </div>
           </div>
         </Fade>
       </Modal>
@@ -93,8 +149,38 @@ function BlogActionsBar() {
       >
         <Fade in={open1}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Your text here</h2>
-            <p id="transition-modal-description">form</p>
+            <div className = "tubmlrpoststyle">
+              <div className = "formtitlebar">
+                <label>
+                  Username
+                </label>
+                <SettingsIcon />
+              </div>
+              <form className="textform">
+                  <div className = "textupload">
+                    <input placeholder="Title" id="title"/>
+                    <textarea placeholder="Your text here" class="yourtext"/>
+                    {/* <form>
+                      <label>
+                        Image URL
+                        <input type="text" name="imageurl" />
+                      </label>
+                      <label>
+                        Caption
+                        <input type="text" name="caption" />
+                      </label>
+                    </form> */}
+                  </div>
+                  <div className="bottombar">
+                    <button className="close">
+                      Close
+                    </button>
+                    <button className="post" type="submit">
+                      Post
+                    </button>
+                  </div>
+                </form>
+              </div>
           </div>
         </Fade>
       </Modal>
