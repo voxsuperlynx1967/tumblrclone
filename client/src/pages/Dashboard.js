@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,14 +10,16 @@ import SearchIcon from '@material-ui/icons/Search';
 import PersonIcon from '@material-ui/icons/Person';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { logout } from '../store/auth';
+import { fetchPosts } from '../store/post';
 import { useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './Dashboard.css';
 import YumblrLogoSmall from '../components/auth/YumblrLogoSmall';
 import CreateIcon from '@material-ui/icons/Create';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import BlogActionsBar from '../components/post/BlogActionsBar';
+import ImagePost from '../components/post/ImagePost';
 import { Container } from '@material-ui/core';
 const theme = createMuiTheme({
   overrides: {
@@ -100,6 +102,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 export default function Dashboard() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -109,6 +113,11 @@ export default function Dashboard() {
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const dispatch = useDispatch();
   const history = useHistory();
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
+  const posts = useSelector(state => state.post);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -190,7 +199,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <div class="page">
+      <div className="page">
 
         <div className={classes.grow}>
           <AppBar id="yumblrbar" position="static">
@@ -249,7 +258,13 @@ export default function Dashboard() {
           {renderMenu}
         </div>
         <BlogActionsBar/>
+        <ul>
+          {Object.values(posts).map(post =>(
+            <ImagePost key={post.id} post={post}/>
+          ))}
+      </ul>
     </div>
+
   </>
   );
 }

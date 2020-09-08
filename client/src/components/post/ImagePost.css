@@ -1,0 +1,17 @@
+.formtitlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px 20px;
+  font-weight: bold;
+
+}
+
+
+.box {
+  width: 50%;
+}
+.postpic {
+  width: 100%;
+  height: 50%;
+}

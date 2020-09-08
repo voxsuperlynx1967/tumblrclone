@@ -33,6 +33,7 @@ router.post(
   validateSignup,
   handleValidationErrors,
   asyncHandler(async function (req, res) {
+    debugger;
     const user = await User.signup(req.body);
 
     const token = await generateToken(user);

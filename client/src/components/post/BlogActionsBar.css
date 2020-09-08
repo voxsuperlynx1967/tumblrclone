@@ -24,7 +24,7 @@
   flex-direction: column;
   align-items: center;
   background: lightgrey;
-  padding: 75px 20px 75px;
+  padding: 75px 20px 20px;
   height: 100%;
   width: 100%;
   justify-content: center;
@@ -68,7 +68,7 @@
   flex-direction: column;
   align-items: flex-start;
   background: white;
-  padding: 75px 5px 75px;
+  padding: 30px 5px 0px;
   height: 100%;
   width: 100%;
   border-style: dashed;

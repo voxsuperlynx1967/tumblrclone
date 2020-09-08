@@ -1,6 +1,8 @@
 import TextFieldsIcon from '@material-ui/icons/TextFields';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
-import React from 'react'
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { createPost, fetchPosts } from '../../store/post';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 import './BlogActionsBar.css';
@@ -9,6 +11,8 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import SettingsIcon from '@material-ui/icons/Settings';
 import LanguageIcon from '@material-ui/icons/Language';
+import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
@@ -41,10 +45,28 @@ const useStyles = makeStyles((theme) => ({
 
 
 
+
+
 function BlogActionsBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [open1, setOpen1] = React.useState(false);
+  const [title, setTitle] = useState('');
+  const [text, setText] = useState('');
+  const [mediaLink, setMediaLink] = useState('');
+  const currentUserId = useSelector(state => state.auth.id);
+  const dispatch = useDispatch();
+
+  const handleSubmit1 = async (e) => {
+    e.preventDefault();
+    await dispatch(createPost( "image", currentUserId, mediaLink ));
+    handleClose();
+  }
+
+  const handleSubmit2 = async (e) => {
+    e.preventDefault();
+    await dispatch(createPost( "text", 1 ));
+  }
 
   const handleOpen = () => {
     setOpen(true);
@@ -68,10 +90,8 @@ function BlogActionsBar() {
     x.style.display = "none";
     const photolabel = document.getElementById("photolabel");
     photolabel.style.display = "none";
-    const y = document.createElement("input")
-    y.classList.add("yourtext");
-    y.placeholder = "Paste a url"
-    g.appendChild(y);
+    const y = document.getElementById("whatever");
+    y.classList.remove("hidden");
     g.style.background = "white";
   };
 
@@ -105,10 +125,15 @@ function BlogActionsBar() {
                 </label>
                 <SettingsIcon />
               </div>
-                <form>
+                <form onSubmit={handleSubmit1}>
                   <div className="photoupload">
                     <LanguageIcon id="urlicon" onClick={iconClick}/>
                     <label id="photolabel">Add photo from web</label>
+                    <input id="whatever" className="yourtext hidden"
+                      placeholder = "Paste a URL"
+                      onChange={e => setMediaLink(e.target.value)}
+                     />
+
                   </div>
                   {/* <form>
                     <label>
@@ -121,9 +146,6 @@ function BlogActionsBar() {
                     </label>
                   </form> */}
                   <div className="bottombar">
-                    <button className="close">
-                      Close
-                    </button>
                     <button className="post" type="submit">
                       Post
                     </button>
@@ -156,10 +178,19 @@ function BlogActionsBar() {
                 </label>
                 <SettingsIcon />
               </div>
-              <form className="textform">
+              <form className="textform" onSubmit={handleSubmit2}>
                   <div className = "textupload">
-                    <input placeholder="Title" id="title"/>
-                    <textarea placeholder="Your text here" class="yourtext"/>
+                    <input
+                    placeholder="Title"
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
+                    id="title"/>
+                    <textarea
+                    placeholder="Your text here"
+                    class="yourtext"
+                    value={title}
+                    onChange={e => setText(e.target.value)}
+                    id="title"/>
                     {/* <form>
                       <label>
                         Image URL
@@ -172,9 +203,6 @@ function BlogActionsBar() {
                     </form> */}
                   </div>
                   <div className="bottombar">
-                    <button className="close">
-                      Close
-                    </button>
                     <button className="post" type="submit">
                       Post
                     </button>
@@ -185,6 +213,7 @@ function BlogActionsBar() {
         </Fade>
       </Modal>
     </Container>
+
 
   )
 }
