@@ -24,11 +24,10 @@
   padding: 0px 20px 0px;
   color: rgba(0,0,0,0);
 }
-
-/* .page {
-  background-color: red;
-} */
+.page {
+  background-color: #001935;
+}
 
 #posts {
-  padding: 200px 50px 0px;
+  padding: 200px 60px 0px;
 }

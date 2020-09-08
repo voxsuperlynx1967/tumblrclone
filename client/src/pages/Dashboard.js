@@ -24,9 +24,6 @@ import { Container } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
 const theme = createMuiTheme({
   overrides: {
-    root: {
-      backgroundColor: "red",
-    },
     MuiButton: {
       label: {
         textTransform: "none",
@@ -203,7 +200,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <div className="page">
+      <div class="page">
 
         <div className={classes.grow}>
           <AppBar id="yumblrbar" position="static">

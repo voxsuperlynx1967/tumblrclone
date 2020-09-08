@@ -19,10 +19,12 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-around',
     height: "10%",
-    width: "70%",
+    width: "45%",
     position: "absolute",
     top: "20%",
-    left: "25%",
+    left: "27%",
+    backgroundColor: "white",
+    borderRadius: "5px",
   },
   modal: {
     display: 'flex',
@@ -56,6 +58,7 @@ function BlogActionsBar() {
   const [mediaLink, setMediaLink] = useState('');
   const currentUserId = useSelector(state => state.auth.id);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit1 = async (e) => {
     e.preventDefault();
@@ -121,7 +124,7 @@ function BlogActionsBar() {
             <div className = "tubmlrpoststyle">
               <div className = "formtitlebar">
                 <label>
-                  Username
+                  guyfieri
                 </label>
                 <SettingsIcon />
               </div>
