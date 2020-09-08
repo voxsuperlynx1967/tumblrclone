@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
-import SettingsIcon from '@material-ui/icons/Settings';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import './ImagePost.css'
 
@@ -17,7 +17,7 @@ function ImagePost({ post }) {
           <label>
             {post.User.username}
           </label>
-          <SettingsIcon />
+          <MoreHorizIcon />
         </div>
         <div>
           <img className="postpic" src={post.mediaLink} />

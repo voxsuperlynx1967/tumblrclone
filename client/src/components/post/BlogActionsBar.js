@@ -20,9 +20,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     height: "10%",
     width: "70%",
-    position: "fixed", /* or absolute */
+    position: "absolute",
     top: "20%",
-    left: "50%",
+    left: "25%",
   },
   modal: {
     display: 'flex',

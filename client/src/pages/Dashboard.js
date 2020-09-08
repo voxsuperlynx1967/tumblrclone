@@ -21,8 +21,12 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import BlogActionsBar from '../components/post/BlogActionsBar';
 import ImagePost from '../components/post/ImagePost';
 import { Container } from '@material-ui/core';
+import { red } from '@material-ui/core/colors';
 const theme = createMuiTheme({
   overrides: {
+    root: {
+      backgroundColor: "red",
+    },
     MuiButton: {
       label: {
         textTransform: "none",
@@ -258,7 +262,7 @@ export default function Dashboard() {
           {renderMenu}
         </div>
         <BlogActionsBar/>
-        <ul>
+        <ul id ="posts">
           {Object.values(posts).map(post =>(
             <ImagePost key={post.id} post={post}/>
           ))}
