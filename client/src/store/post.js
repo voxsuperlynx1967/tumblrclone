@@ -39,6 +39,7 @@ export const createPost = ( postType, userId, mediaLink ) => {
 
 
     const data = await res.json();
+    console.log(data)
     dispatch(newPost(data.post));
     res.data = data;
     return res;

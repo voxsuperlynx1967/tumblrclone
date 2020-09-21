@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-around',
     height: "10%",
-    width: "45%",
+    width: "47%",
     position: "absolute",
     top: "20%",
     left: "27%",
@@ -57,11 +57,11 @@ function BlogActionsBar() {
   const [text, setText] = useState('');
   const [mediaLink, setMediaLink] = useState('');
   const currentUserId = useSelector(state => state.auth.id);
+  const currentUserName = useSelector(state => state.auth.username)
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleSubmit1 = async (e) => {
-    e.preventDefault();
     await dispatch(createPost( "image", currentUserId, mediaLink ));
     handleClose();
   }
@@ -107,6 +107,7 @@ function BlogActionsBar() {
           >
 
         </AddAPhotoIcon>
+
         <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -124,7 +125,7 @@ function BlogActionsBar() {
             <div className = "tubmlrpoststyle">
               <div className = "formtitlebar">
                 <label>
-                  guyfieri
+                  {currentUserName}
                 </label>
                 <SettingsIcon />
               </div>
@@ -177,7 +178,7 @@ function BlogActionsBar() {
             <div className = "tubmlrpoststyle">
               <div className = "formtitlebar">
                 <label>
-                  Username
+                    {currentUserName}
                 </label>
                 <SettingsIcon />
               </div>

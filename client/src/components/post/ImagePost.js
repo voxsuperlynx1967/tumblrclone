@@ -22,6 +22,13 @@ function ImagePost({ post }) {
         <div>
           <img className="postpic" src={post.mediaLink} />
         </div>
+        <div className="tags">
+            <ul className = "taglist">
+                <li>#burgers</li>
+                <li>#cheese</li>
+                <li>#bacon</li>
+            </ul>
+        </div>
         <div className="bottombar">
           <FavoriteBorderIcon/>
         </div>

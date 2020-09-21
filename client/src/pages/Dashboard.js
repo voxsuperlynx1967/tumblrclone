@@ -20,8 +20,6 @@ import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import BlogActionsBar from '../components/post/BlogActionsBar';
 import ImagePost from '../components/post/ImagePost';
-import { Container } from '@material-ui/core';
-import { red } from '@material-ui/core/colors';
 const theme = createMuiTheme({
   overrides: {
     MuiButton: {
@@ -200,7 +198,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <div class="page">
+      <div className="page">
 
         <div className={classes.grow}>
           <AppBar id="yumblrbar" position="static">

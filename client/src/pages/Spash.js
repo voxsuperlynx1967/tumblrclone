@@ -73,6 +73,12 @@ function Splash() {
         fixed
         maxWidth="sm">
         <YumblrLogo id="yumblrlogo1"/>
+        <span id="bigspan">
+          <span>Come for what you crave.
+          </span>
+          <span>Stay for what you devour.
+          </span>
+        </span>
           <ThemeProvider theme={theme}>
           <AuthSubmitButton
             onClick={signupclick}
