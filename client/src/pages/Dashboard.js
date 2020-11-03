@@ -257,11 +257,14 @@ export default function Dashboard() {
           {renderMenu}
         </div>
         <BlogActionsBar/>
-        <ul id ="posts">
-          {Object.values(posts).map(post =>(
-            <ImagePost key={post.id} post={post}/>
-          ))}
-      </ul>
+        {/* <div className="postsContainer"> */}
+            <div id ="posts">
+            {Object.values(posts).map(post =>(
+                <ImagePost key={post.id} post={post}/>
+            ))}
+        </div>
+        {/* </div> */}
+
     </div>
 
   </>

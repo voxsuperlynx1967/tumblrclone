@@ -24,10 +24,15 @@
   padding: 0px 20px 0px;
   color: rgba(0,0,0,0);
 }
-.page {
+/* .page {
   background-color: #001935;
-}
+  height: 100vh;
+} */
 
 #posts {
-  padding: 200px 60px 0px;
+ position: absolute;
+ top: 25%;
+ left: 25%;
+ width: 100%;
+
 }

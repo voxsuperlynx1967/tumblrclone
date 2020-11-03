@@ -12,6 +12,8 @@ import Fade from '@material-ui/core/Fade';
 import SettingsIcon from '@material-ui/icons/Settings';
 import LanguageIcon from '@material-ui/icons/Language';
 import { useHistory } from "react-router-dom";
+import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
+
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -19,10 +21,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-around',
     height: "10%",
-    width: "47%",
+    width: "50%",
     position: "absolute",
+    // left: "49%",
     top: "20%",
-    left: "27%",
     backgroundColor: "white",
     borderRadius: "5px",
   },
@@ -62,7 +64,8 @@ function BlogActionsBar() {
   const history = useHistory();
 
   const handleSubmit1 = async (e) => {
-    await dispatch(createPost( "image", currentUserId, mediaLink ));
+    dispatch(createPost( "image", currentUserId, mediaLink ));
+    dispatch(fetchPosts())
     handleClose();
   }
 
@@ -216,6 +219,7 @@ function BlogActionsBar() {
           </div>
         </Fade>
       </Modal>
+      <FormatQuoteIcon id="posticon"/>
     </Container>
 
 
