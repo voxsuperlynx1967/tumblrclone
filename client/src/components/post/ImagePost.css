@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 10px 20px;
+  padding: 20px 20px 20px;
   font-weight: bold;
 
 }
@@ -22,8 +22,13 @@
 .taglist {
     list-style-type: none;
     display: flex;
-    font-size: 18px;
+    font-size: 16px;
     justify-content: flex-start;
+}
+
+ul.taglist {
+    padding-inline-start: 15px;
+    padding-bottom: 0px;
 }
 
 .taglist li:hover {
@@ -36,6 +41,64 @@
 }
 
 .tags {
-    padding-top: 20px;
+    padding-top: 15px;
+    /* padding-left: none; */
+}
+
+.title {
+    font: Favorit #000000;
+    font-size: 26px;
     padding-bottom: 20px;
+}
+
+.text {
+    font: 16px "Helvetica Neue";
+}
+
+
+.textposts {
+    padding-left: 20px;
+}
+
+
+.bottombar {
+    display: flex;
+    justify-content: space-between;
+}
+
+svg.reblog {
+    height: 20px;
+}
+
+svg.edit {
+    height: 20px;
+}
+svg.trash {
+    height: 20px;
+}
+svg.heart {
+    height: 20px;
+}
+svg.comment {
+    height: 20px;
+}
+
+svg.bottombuttons {
+    margin-right: 2%;
+    fill: #000000A6;
+}
+
+
+.buttoncontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 35%;
+}
+
+.notes {
+    color: #000000A6;
+    font: Favorit;
+    font-weight: bold;
+    padding-left: 10px;
 }

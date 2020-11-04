@@ -21,9 +21,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-around',
     height: "10%",
-    width: "50%",
+    width: "37.5%",
     position: "absolute",
-    // left: "49%",
+    left: "43.75%",
     top: "20%",
     backgroundColor: "white",
     borderRadius: "5px",
@@ -55,27 +55,27 @@ function BlogActionsBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [open1, setOpen1] = React.useState(false);
-  const [title, setTitle] = useState('');
-  const [text, setText] = useState('');
+  const [title, setTitle] = useState('Hi');
+  const [text, setText] = useState('Bye');
+  const [postType, setPostType] = useState('text')
   const [mediaLink, setMediaLink] = useState('');
   const currentUserId = useSelector(state => state.auth.id);
   const currentUserName = useSelector(state => state.auth.username)
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleSubmit1 = async (e) => {
-    dispatch(createPost( "image", currentUserId, mediaLink ));
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await dispatch(createPost( postType, currentUserId, title, text, mediaLink ));
     dispatch(fetchPosts())
     handleClose();
   }
 
-  const handleSubmit2 = async (e) => {
-    e.preventDefault();
-    await dispatch(createPost( "text", 1 ));
-  }
 
   const handleOpen = () => {
+    setPostType("image");
     setOpen(true);
+    console.log("hi")
   };
 
   const handleClose = () => {
@@ -83,7 +83,10 @@ function BlogActionsBar() {
   };
 
   const handleOpen1 = () => {
+    setPostType("text");
     setOpen1(true);
+    console.log("hello")
+    // console.log(postType)
   };
 
   const handleClose1 = () => {
@@ -132,7 +135,7 @@ function BlogActionsBar() {
                 </label>
                 <SettingsIcon />
               </div>
-                <form onSubmit={handleSubmit1}>
+                <form onSubmit={handleSubmit}>
                   <div className="photoupload">
                     <LanguageIcon id="urlicon" onClick={iconClick}/>
                     <label id="photolabel">Add photo from web</label>
@@ -185,7 +188,7 @@ function BlogActionsBar() {
                 </label>
                 <SettingsIcon />
               </div>
-              <form className="textform" onSubmit={handleSubmit2}>
+              <form className="textform" onSubmit={handleSubmit}>
                   <div className = "textupload">
                     <input
                     placeholder="Title"
@@ -195,7 +198,7 @@ function BlogActionsBar() {
                     <textarea
                     placeholder="Your text here"
                     class="yourtext"
-                    value={title}
+                    value={text}
                     onChange={e => setText(e.target.value)}
                     id="title"/>
                     {/* <form>

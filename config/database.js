@@ -12,17 +12,17 @@ module.exports = {
     database,
     host,
     dialect: 'postgres',
-    seederStorage: 'sequelize',
+    seederStorageTableName: 'SequelizeData',
   },
   test: {
     dialect: "sqlite",
     DB_CONN: "sqlite.memory",
     logging: false,
-    seederStorage: 'sequelize',
+    seederStorageTableName: 'SequelizeData',
   },
   production: {
     use_env_variable: 'DATABASE_URL',
     dialect: 'postgres',
-    seederStorage: 'sequelize',
+    seederStorageTableName: 'SequelizeData',
   },
 };

@@ -23,10 +23,13 @@ router.get('/', asyncHandler(async function (req, res) {
 
 
 router.post('/', asyncHandler(async function (req, res) {
+
   debugger;
-  const { postType, userId, mediaLink } = req.body;
+  const { postType, userId, title, text, mediaLink  } = req.body;
   debugger
-  const newPost = await Post.create({ postType, userId, mediaLink });
+  console.log(postType)
+  const newPost = await Post.create({ postType, userId, title, text, mediaLink  });
+  console.log(newPost)
   const post = await Post.findByPk(newPost.id, {
     include: [
       {

@@ -114,8 +114,10 @@ export default function Dashboard() {
   const history = useHistory();
   useEffect(() => {
     dispatch(fetchPosts());
-  }, []);
-  const posts = useSelector(state => state.post);
+  }, [dispatch]);
+  const post = useSelector(state => state.post);
+  const postlist = post.posts
+  console.log(postlist)
 
 
   const handleSubmit = async (e) => {
@@ -170,6 +172,19 @@ export default function Dashboard() {
       </div>
     </Menu>
   );
+
+  const postrender = () => {
+        const postsli = postlist ? postlist : []
+        console.log(postsli)
+        const list1 = []
+        for (let i = 0; i < postsli.length; i++) {
+
+          list1.push(<ImagePost post={postsli[i]}/>)
+        }
+        console.log(list1)
+        return list1;
+
+  }
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
@@ -259,10 +274,8 @@ export default function Dashboard() {
         <BlogActionsBar/>
         {/* <div className="postsContainer"> */}
             <div id ="posts">
-            {Object.values(posts).map(post =>(
-                <ImagePost key={post.id} post={post}/>
-            ))}
-        </div>
+                {postrender()}
+             </div>
         {/* </div> */}
 
     </div>
