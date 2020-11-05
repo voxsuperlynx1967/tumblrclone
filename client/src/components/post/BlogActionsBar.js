@@ -59,6 +59,8 @@ function BlogActionsBar() {
   const [text, setText] = useState('Bye');
   const [postType, setPostType] = useState('text')
   const [mediaLink, setMediaLink] = useState('');
+  const [caption, setCaption] = useState('')
+  const [reblogUserId, setReblogUserId] = useState('')
   const currentUserId = useSelector(state => state.auth.id);
   const currentUserName = useSelector(state => state.auth.username)
   const dispatch = useDispatch();
@@ -66,7 +68,7 @@ function BlogActionsBar() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await dispatch(createPost( postType, currentUserId, title, text, mediaLink ));
+    await dispatch(createPost( postType, currentUserId, title, text, mediaLink, caption, reblogUserId ));
     dispatch(fetchPosts())
     handleClose();
   }

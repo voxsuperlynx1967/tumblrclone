@@ -51,16 +51,22 @@ router.get('/', asyncHandler(async function (req, res) {
 router.post('/', asyncHandler(async function (req, res) {
 
   debugger;
-  const { postType, userId, title, text, mediaLink  } = req.body;
+  const { postType, userId, title, text, mediaLink, caption, reblogUserId  } = req.body;
   debugger
   console.log(postType)
-  const newPost = await Post.create({ postType, userId, title, text, mediaLink  });
+  const newPost = await Post.create({ postType, userId, title, text, mediaLink, caption, reblogUserId  });
   console.log(newPost)
   const post = await Post.findByPk(newPost.id, {
     include: [
       {
         model: User,
+        as: 'Poster',
         attributes: ['id', 'username']
+      },
+      {
+        model: User,
+        as: 'Reblog',
+        attributes: ['username']
       },
     ]
   });
