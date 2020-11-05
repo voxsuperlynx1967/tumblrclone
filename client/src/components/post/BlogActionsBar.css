@@ -106,3 +106,12 @@ button {
 #whatever {
   padding: 75px 0px 75px;
 }
+
+
+.photoicon {
+    color: red;
+}
+
+.quoteicon {
+    color: orange;
+}

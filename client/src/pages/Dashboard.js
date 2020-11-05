@@ -20,6 +20,8 @@ import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import BlogActionsBar from '../components/post/BlogActionsBar';
 import ImagePost from '../components/post/ImagePost';
+import { fetchLikes } from '../store/likes';
+
 const theme = createMuiTheme({
   overrides: {
     MuiButton: {
@@ -115,6 +117,11 @@ export default function Dashboard() {
   useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
+  const currentUser = useSelector(state => state.auth);
+  const currentUserId = currentUser.id
+  useEffect(() => {
+    dispatch(fetchLikes(currentUserId));
+  }, [dispatch, currentUserId]);
   const post = useSelector(state => state.post);
   const postlist = post.posts
   console.log(postlist)

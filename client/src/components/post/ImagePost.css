@@ -7,6 +7,17 @@
 
 }
 
+.formtitlebar2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 10px;
+    font-weight: bold;
+    border-bottom: 1px solid lightgrey
+
+  }
+
+
 
 .box {
   width: 50%;
@@ -56,6 +67,11 @@ ul.taglist {
 }
 
 
+.caption {
+    font: 16px "Helvetica Neue";
+    padding-top: 20px;
+}
+
 .textposts {
     padding-left: 20px;
 }
@@ -70,6 +86,10 @@ svg.reblog {
     height: 20px;
 }
 
+svg.reblogtiny {
+    height: 12px;
+}
+
 svg.edit {
     height: 20px;
 }
@@ -77,7 +97,7 @@ svg.trash {
     height: 20px;
 }
 svg.heart {
-    height: 20px;
+    height: 22px;
 }
 svg.comment {
     height: 20px;
@@ -86,6 +106,11 @@ svg.comment {
 svg.bottombuttons {
     margin-right: 2%;
     fill: #000000A6;
+}
+
+svg.bottombuttons2 {
+    /* margin-right: 2%; */
+    fill: #000000;
 }
 
 
@@ -101,4 +126,23 @@ svg.bottombuttons {
     font: Favorit;
     font-weight: bold;
     padding-left: 10px;
+}
+
+.quote {
+    font: 34px Georgia;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.reblogsection {
+    width: 50%;
+}
+
+
+#liked {
+    color: red;
+}
+
+#notliked {
+    color: #000000A6;
 }

@@ -29,6 +29,14 @@ module.exports = {
       caption: {
         type: Sequelize.STRING
       },
+      reblogUserId: {
+        type: Sequelize.INTEGER,
+        references: { model: "Users" }
+      },
+      noteCount: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

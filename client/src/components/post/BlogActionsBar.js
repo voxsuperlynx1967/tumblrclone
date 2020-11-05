@@ -107,64 +107,7 @@ function BlogActionsBar() {
 
   return (
     <Container classes={{ root: classes.container }}>
-        <AddAPhotoIcon
-          id="posticon"
-          onClick={handleOpen}
-          >
 
-        </AddAPhotoIcon>
-
-        <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <div className = "tubmlrpoststyle">
-              <div className = "formtitlebar">
-                <label>
-                  {currentUserName}
-                </label>
-                <SettingsIcon />
-              </div>
-                <form onSubmit={handleSubmit}>
-                  <div className="photoupload">
-                    <LanguageIcon id="urlicon" onClick={iconClick}/>
-                    <label id="photolabel">Add photo from web</label>
-                    <input id="whatever" className="yourtext hidden"
-                      placeholder = "Paste a URL"
-                      onChange={e => setMediaLink(e.target.value)}
-                     />
-
-                  </div>
-                  {/* <form>
-                    <label>
-                      Image URL
-                      <input type="text" name="imageurl" />
-                    </label>
-                    <label>
-                      Caption
-                      <input type="text" name="caption" />
-                    </label>
-                  </form> */}
-                  <div className="bottombar">
-                    <button className="post" type="submit">
-                      Post
-                    </button>
-                  </div>
-                </form>
-            </div>
-          </div>
-        </Fade>
-      </Modal>
         <TextFieldsIcon id="posticon" onClick={handleOpen1}>
         </TextFieldsIcon>
         <Modal
@@ -222,7 +165,66 @@ function BlogActionsBar() {
           </div>
         </Fade>
       </Modal>
-      <FormatQuoteIcon id="posticon"/>
+      <AddAPhotoIcon
+           className="photoicon"
+          id="posticon"
+          onClick={handleOpen}
+          >
+
+        </AddAPhotoIcon>
+
+        <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div className={classes.paper}>
+            <div className = "tubmlrpoststyle">
+              <div className = "formtitlebar">
+                <label>
+                  {currentUserName}
+                </label>
+                <SettingsIcon />
+              </div>
+                <form onSubmit={handleSubmit}>
+                  <div className="photoupload">
+                    <LanguageIcon id="urlicon" onClick={iconClick}/>
+                    <label id="photolabel">Add photo from web</label>
+                    <input id="whatever" className="yourtext hidden"
+                      placeholder = "Paste a URL"
+                      onChange={e => setMediaLink(e.target.value)}
+                     />
+
+                  </div>
+                  {/* <form>
+                    <label>
+                      Image URL
+                      <input type="text" name="imageurl" />
+                    </label>
+                    <label>
+                      Caption
+                      <input type="text" name="caption" />
+                    </label>
+                  </form> */}
+                  <div className="bottombar">
+                    <button className="post" type="submit">
+                      Post
+                    </button>
+                  </div>
+                </form>
+            </div>
+          </div>
+        </Fade>
+      </Modal>
+      <FormatQuoteIcon className = "quoteicon" id="posticon"/>
     </Container>
 
 

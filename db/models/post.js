@@ -6,12 +6,35 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     text: DataTypes.STRING,
     mediaLink: DataTypes.STRING,
-    caption: DataTypes.STRING
+    caption: DataTypes.STRING,
+    reblogUserId: DataTypes.INTEGER,
+    noteCount: DataTypes.INTEGER
   }, {});
   Post.associate = function(models) {
     Post.belongsTo(models.User, {
-      foreignKey: "userId"
+      as: "Poster",
+      foreignKey: "userId",
+    }),
+    Post.belongsTo(models.User, {
+        as: "Reblog",
+        foreignKey: "reblogUserId"
     })
+    Post.belongsToMany(models.Tag, {
+        through: models.Tag_Post,
+        foreignKey: "postId"
+    })
+    Post.hasMany(models.Tag_Post, {
+        foreignKey: "postId"
+      })
+    Post.hasMany(models.Like, {
+        foreignKey: "postId"
+    })
+    Post.hasMany(models.Comment, {
+        foreignKey: "postId"
+    })
+
+
+
   };
   return Post;
 };
