@@ -14,10 +14,12 @@
 #menuitem {
   font: 14px Favorit  #000000A6;
 
+
 }
 #buttoncontainer {
   background: #00000012;
   display: flex;
+  flex-direction: column;
 }
 
 #pad {
@@ -59,7 +61,39 @@
     flex-direction: column;
 }
 
-.recblogs {
+.recblog {
     font: Favorit;
     font-size: 14px;
+    font-weight: bold;
+    padding-top: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+
+
+
+
+}
+
+span.menuspan {
+    text-transform: none;
+    font: 14px Helvetica Neue;
+    text-align: right;
+    color: #000000A6;
+}
+
+
+.MuiButtonBase-root.menubutton {
+    padding: 0px;
+}
+
+
+.myblog {
+    font: 14px Helvetica Neue;
+    /* text-align: right; */
+    color: #000000A6;
+    font-weight: bold;
+    padding: 2%;
 }

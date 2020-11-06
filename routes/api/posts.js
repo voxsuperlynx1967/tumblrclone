@@ -95,6 +95,11 @@ router.delete('/', asyncHandler(async function (req, res) {
 
 
     const { id, userId } = req.body;
+    Tag_Post.destroy({
+        where: {
+            postId: id
+        }
+    })
     Post.destroy({
         where: {
             id: id,

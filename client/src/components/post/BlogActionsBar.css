@@ -91,7 +91,7 @@
   flex-direction: column;
   align-items: flex-start;
   background: white;
-  padding: 30px 5px 0px;
+  padding: 30px 5px 20px;
   height: 100%;
   width: 100%;
   border-style: dashed;
@@ -109,6 +109,16 @@
   background: white;
   padding: 0px 20px 30px;
 }
+
+
+#title2 {
+    border: none;
+    font-family: "Helvetica Neue","HelveticaNeue","Helvetica","Arial","sans-serif";
+    font-size: 20px;
+    float: left;
+    background: white;
+    padding: 0px 20px 10px;
+  }
 
 .yourtext {
   border: none;
@@ -170,12 +180,15 @@ button {
 
 .yourtags {
     border: none;
+    margin-top: 2%;
     margin-left: 3%;
 }
 
 .yourtags1 {
     border: none;
     margin-left: 0%;
+    margin-top: 5%;
+    width: 70%;
 }
 
 .yourtags2 {
@@ -215,4 +228,16 @@ button {
 
 #taginput {
     margin-bottom: 5%;
+}
+
+
+
+#quote {
+    font: 34px Georgia;
+    border: none;
+    padding: 0px 20px 10px;
+    margin-bottom: 5%;
+
+    /* padding-right: 20px;
+    padding-bottom: 20px; */
 }

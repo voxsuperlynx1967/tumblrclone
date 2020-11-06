@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: "0px",
     width: "50%",
-    height: "65%",
+    height: "70%",
   },
   muiButton: {
     background: "lightblue",
@@ -56,6 +56,7 @@ function BlogActionsBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [open1, setOpen1] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [postType, setPostType] = useState('')
@@ -168,6 +169,7 @@ const handleKeyUp2 = (e) => {
     dispatch(fetchPosts())
     handleClose();
     handleClose1();
+    handleClose2();
   }
 
 
@@ -184,12 +186,23 @@ const handleKeyUp2 = (e) => {
   const handleOpen1 = () => {
     setPostType("text");
     setOpen1(true);
-    console.log("hello")
     // console.log(postType)
   };
 
   const handleClose1 = () => {
     setOpen1(false);
+  };
+
+  const handleOpen2 = () => {
+    setPostType("quote");
+    setOpen2(true);
+
+    // console.log(postType)
+  };
+
+
+  const handleClose2 = () => {
+    setOpen2(false);
   };
 
   const iconClick = () => {
@@ -414,10 +427,70 @@ const handleKeyUp2 = (e) => {
         </Fade>
       </Modal>
       <div className="icontext">
-      <FormatQuoteIcon className = "quoteicon" id="posticon"/>
+      <FormatQuoteIcon onClick={handleOpen2} className = "quoteicon" id="posticon"/>
       <span className="icontext-text">
             Quote
         </span>
+        <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={open2}
+        onClose={handleClose2}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open2}>
+          <div className={classes.paper}>
+            <div className = "tubmlrpoststyle">
+              <div className = "formtitlebar">
+                <label>
+                    {currentUserName}
+                </label>
+                <SettingsIcon />
+              </div>
+              <form className="textform" onSubmit={handleSubmit}>
+                  <div className = "textupload">
+                    <input
+                    placeholder='"Quote"'
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
+                    id="quote"/>
+                   <input
+                    placeholder="- Source"
+                    value={text}
+                    onChange={e => setText(e.target.value)}
+                    id="title2"/>
+                    <input
+                    placeholder="#tags"
+                    class="yourtags"
+                    onKeyUp={handleKeyUp}
+                    id="taginput"/>
+                    <div id="tagList" className="tagList"></div>
+                    {/* <form>
+                      <label>
+                        Image URL
+                        <input type="text" name="imageurl" />
+                      </label>
+                      <label>
+                        Caption
+                        <input type="text" name="caption" />
+                      </label>
+                    </form> */}
+                  </div>
+                  <div className="bottombar">
+                    <button className="post" type="submit">
+                      Post
+                    </button>
+                  </div>
+                </form>
+              </div>
+          </div>
+        </Fade>
+      </Modal>
       </div>
     </Container>
 

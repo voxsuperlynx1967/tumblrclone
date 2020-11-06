@@ -57,7 +57,7 @@ function SignupPage() {
   const dispatch = useDispatch();
   const classes = useStyles();
   const history = useHistory();
-  const currentUserId = useSelector(state => state.auth.id);
+  const currentUser = useSelector(state => state.auth);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -65,7 +65,7 @@ function SignupPage() {
     history.push("/dashboard");
   }
 
-  if (currentUserId) return <Redirect to="/dashboard" />;
+  if (currentUser.id || currentUser.user) return <Redirect to="/dashboard" />;
   return (
     <div class="signup-wrapper">
       <SignupNavBar/>

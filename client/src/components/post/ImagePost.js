@@ -18,6 +18,7 @@ function ImagePost({ post }) {
   const dispatch = useDispatch();
 //   const [title, setTitle] = useState(`${post.title}`);
 //   const [text, setText] = useState(`${post.text}`);
+  let tagList = []
   const rendertype = () => {
       if (post && post !== null) {
         if (post.mediaLink) {
@@ -219,7 +220,7 @@ function ImagePost({ post }) {
         title = ''
     }
     debugger
-    await dispatch(createPost( postType, userId, title, text, mediaLink, caption, reblogUserId ));
+    await dispatch(createPost( postType, userId, title, text, mediaLink, caption, reblogUserId, tagList ));
     dispatch(fetchPosts())
   }
   return (
