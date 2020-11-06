@@ -16,8 +16,8 @@ import { fetchPosts } from '../../store/post';
 
 function ImagePost({ post }) {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState(`${post.title}`);
-  const [text, setText] = useState(`${post.text}`);
+//   const [title, setTitle] = useState(`${post.title}`);
+//   const [text, setText] = useState(`${post.text}`);
   const rendertype = () => {
       if (post && post !== null) {
         if (post.mediaLink) {
@@ -91,6 +91,19 @@ function ImagePost({ post }) {
     dispatch(fetchLikes(userId));
   }
 
+  const delpost = async () => {
+    const id = post.id
+    const res = await fetch(`/api/posts/`, {
+        method: "delete",
+        headers: {
+            "Content-Type": "application/json",
+            "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+        },
+        body: JSON.stringify({ id, userId })
+
+    });
+    dispatch(fetchPosts());
+  }
   const unlike = async () => {
     const res = await fetch(`/api/likes/`, {
         method: "delete",
@@ -133,8 +146,8 @@ function ImagePost({ post }) {
 
           return (
             <>
-                <svg className = "bottombuttons trash" viewBox="0 0 14 17" width="21" height="5" fill="var(--gray-65)"><path d="M12 5v9c.1.7-.3 1-1 1H3c-.5 0-.9-.3-1-1V5c0-.6-.4-1-1-1-.5 0-1 .4-1 1v9.5C0 16.1 1.4 17 3 17h8c1.8 0 3-.8 3-2.5V5c0-.6-.5-1-1-1-.6 0-1 .5-1 1z"></path><path d="M4 12s0 1 1 1 1-1 1-1V5c0-.5-.4-1-1-1-.5 0-1 .5-1 1v7zm4 0s0 1 1 1 1-1 1-1V5c0-.5-.4-1-1-1-.5 0-1 .5-1 1v7zm5-10c.5 0 1-.4 1-1 0-.5-.4-.9-1-1H1C.5.1 0 .5 0 1c0 .6.6 1 1.1 1H13z"></path></svg>
-                <svg className = "bottombuttons edit" viewBox="0 0 17.6 17.6" width="21" height="5" fill="var(--gray-65)"><path d="M5.3 13.8l-2.1.7.7-2.1L10.3 6l1.4 1.4-6.4 6.4zm6.4-9.3l-1.4-1.4-1.4 1.4-6.7 6.7-.2.5-2 5.9 3.8-1.3 2.1-.7.4-.1.3-.3 7.8-7.8c.1 0-2.7-2.9-2.7-2.9zm5.6-1.4L14.5.3c-.4-.4-1-.4-1.4 0l-1.4 1.4L15.9 6l1.4-1.4c.4-.5.4-1.1 0-1.5"></path></svg>
+                <svg onClick={delpost} className = "bottombuttons trash" viewBox="0 0 14 17" width="21" height="5" fill="var(--gray-65)"><path d="M12 5v9c.1.7-.3 1-1 1H3c-.5 0-.9-.3-1-1V5c0-.6-.4-1-1-1-.5 0-1 .4-1 1v9.5C0 16.1 1.4 17 3 17h8c1.8 0 3-.8 3-2.5V5c0-.6-.5-1-1-1-.6 0-1 .5-1 1z"></path><path d="M4 12s0 1 1 1 1-1 1-1V5c0-.5-.4-1-1-1-.5 0-1 .5-1 1v7zm4 0s0 1 1 1 1-1 1-1V5c0-.5-.4-1-1-1-.5 0-1 .5-1 1v7zm5-10c.5 0 1-.4 1-1 0-.5-.4-.9-1-1H1C.5.1 0 .5 0 1c0 .6.6 1 1.1 1H13z"></path></svg>
+                {/* <svg className = "bottombuttons edit" viewBox="0 0 17.6 17.6" width="21" height="5" fill="var(--gray-65)"><path d="M5.3 13.8l-2.1.7.7-2.1L10.3 6l1.4 1.4-6.4 6.4zm6.4-9.3l-1.4-1.4-1.4 1.4-6.7 6.7-.2.5-2 5.9 3.8-1.3 2.1-.7.4-.1.3-.3 7.8-7.8c.1 0-2.7-2.9-2.7-2.9zm5.6-1.4L14.5.3c-.4-.4-1-.4-1.4 0l-1.4 1.4L15.9 6l1.4-1.4c.4-.5.4-1.1 0-1.5"></path></svg> */}
             </>
           )
       }
@@ -193,7 +206,19 @@ function ImagePost({ post }) {
     } else {
         caption = ''
     }
-
+    let text
+    if (post.text) {
+        text = post.text
+    } else {
+        text = ''
+    }
+    let title
+    if (post.title) {
+        title = post.title
+    } else {
+        title = ''
+    }
+    debugger
     await dispatch(createPost( postType, userId, title, text, mediaLink, caption, reblogUserId ));
     dispatch(fetchPosts())
   }
@@ -207,7 +232,7 @@ function ImagePost({ post }) {
                 {rendertags()}
             </ul>
         </div>
-        <div className="bottombar">
+        <div className="bottombar2">
             <div className="notes">
                 {post.noteCount ? post.noteCount + " notes" : ""}
             </div>

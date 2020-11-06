@@ -98,6 +98,7 @@ svg.trash {
 }
 svg.heart {
     height: 22px;
+    cursor: pointer;
 }
 svg.comment {
     height: 20px;
@@ -106,6 +107,7 @@ svg.comment {
 svg.bottombuttons {
     margin-right: 2%;
     fill: #000000A6;
+    cursor: pointer;
 }
 
 svg.bottombuttons2 {
@@ -145,4 +147,14 @@ svg.bottombuttons2 {
 
 #notliked {
     color: #000000A6;
+}
+
+.bottombar2 {
+    padding-bottom: 5%;
+    height: 100%;
+    width: 95%;
+    margin-left: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

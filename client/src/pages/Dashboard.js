@@ -286,6 +286,18 @@ export default function Dashboard() {
         {/* </div> */}
 
     </div>
+    <div className="sideBar">
+        <div className="blogs">
+            <div className="blogsTitle">
+                Recommended Blogs
+            </div>
+            <span className="recblog">
+                guyfieri</span>
+            <span className="recblog">fishflay</span>
+            <span className="recblog">chefgordon</span>
+
+        </div>
+    </div>
 
   </>
   );

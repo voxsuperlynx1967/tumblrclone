@@ -27,7 +27,7 @@ export const fetchPosts = () => {
   };
 };
 
-export const createPost = ( postType, userId, title, text, mediaLink, caption, reblogUserId ) => {
+export const createPost = ( postType, userId, title, text, mediaLink, caption, reblogUserId, tagList ) => {
   return async (dispatch) => {
     debugger
     const res = await fetch(`/api/posts`, {
@@ -36,7 +36,7 @@ export const createPost = ( postType, userId, title, text, mediaLink, caption, r
         "Content-Type": "application/json",
         "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
       },
-      body: JSON.stringify({ postType, userId, title, text, mediaLink, caption, reblogUserId  })
+      body: JSON.stringify({ postType, userId, title, text, mediaLink, caption, reblogUserId, tagList  })
     });
 
 

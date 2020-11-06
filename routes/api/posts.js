@@ -24,7 +24,6 @@ router.get('/', asyncHandler(async function (req, res) {
     ],
     order: [['createdAt', 'DESC']]
   });
-  posts[0].dataValues["poop"] = "oh yeah"
 //   console.log(posts[0].dataValues)
 
   for (let i=0; i < posts.length; i++) {
@@ -51,7 +50,7 @@ router.get('/', asyncHandler(async function (req, res) {
 router.post('/', asyncHandler(async function (req, res) {
 
   debugger;
-  const { postType, userId, title, text, mediaLink, caption, reblogUserId  } = req.body;
+  const { postType, userId, title, text, mediaLink, caption, reblogUserId, tagList  } = req.body;
   debugger
   console.log(postType)
   const newPost = await Post.create({ postType, userId, title, text, mediaLink, caption, reblogUserId  });
@@ -70,7 +69,40 @@ router.post('/', asyncHandler(async function (req, res) {
       },
     ]
   });
+  const postId = newPost.id
+  for (let i=0; i<tagList.length; i++) {
+    const title = tagList[i]
+    try {
+        const tag = await Tag.findAll({
+
+            where: {
+                title: title
+            }
+          });
+          const tagId = tag.id
+          const newTagPost = await Tag_Post.create({ postId, tagId })
+    } catch {
+        const newTag = await Tag.create({ title })
+        const tagId = newTag.id
+        const newTagPost = await Tag_Post.create({ postId, tagId })
+    }
+
+  }
   res.json({ post });
 }));
+
+router.delete('/', asyncHandler(async function (req, res) {
+
+
+    const { id, userId } = req.body;
+    Post.destroy({
+        where: {
+            id: id,
+            userId: userId
+        }
+    });
+
+    res.json({ msg: 'success' });
+  }));
 
 module.exports = router;

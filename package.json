@@ -12,7 +12,8 @@
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
   "dependencies": {
-    "aws-sdk": "^2.746.0",
+    "aws-sdk": "^2.786.0",
+    "axios": "^0.21.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -26,6 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
     "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
     "per-env": "^1.0.2",
     "pg": "^8.0.3",
     "sequelize": "^5.21.7",
