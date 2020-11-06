@@ -14,20 +14,86 @@
 #menuitem {
   font: 14px Favorit  #000000A6;
 
+
 }
 #buttoncontainer {
   background: #00000012;
   display: flex;
+  flex-direction: column;
 }
 
 #pad {
   padding: 0px 20px 0px;
   color: rgba(0,0,0,0);
 }
-.page {
+/* .page {
   background-color: #001935;
-}
+  height: 100vh;
+} */
 
 #posts {
-  padding: 200px 60px 0px;
+ position: absolute;
+ top: 25%;
+ left: 25%;
+ width: 75%;
+
+}
+
+.sideBar {
+    position: absolute;
+    left: 65%;
+    top: 15%;
+    width: 25%;
+}
+
+.blogsTitle {
+    color: white;
+    font: Favorit;
+    font-size: 21px;
+    font-weight: bold;
+    padding-bottom: 2%;
+    padding-left: 2%;
+    border-bottom: 2px solid rgba(255,255,255,0.25);
+}
+
+.blogs {
+    display: flex;
+    flex-direction: column;
+}
+
+.recblog {
+    font: Favorit;
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+
+
+
+
+}
+
+span.menuspan {
+    text-transform: none;
+    font: 14px Helvetica Neue;
+    text-align: right;
+    color: #000000A6;
+}
+
+
+.MuiButtonBase-root.menubutton {
+    padding: 0px;
+}
+
+
+.myblog {
+    font: 14px Helvetica Neue;
+    /* text-align: right; */
+    color: #000000A6;
+    font-weight: bold;
+    padding: 2%;
 }

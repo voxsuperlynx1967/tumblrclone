@@ -1,6 +1,6 @@
 #posticon {
-  width: 75px;
-  height: 75px;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
 }
 #urlicon {
@@ -8,7 +8,11 @@
   height: 10%;
   cursor: pointer;
 }
-
+#photoicon {
+    width: 15%;
+    height: 10%;
+    cursor: pointer;
+  }
 
 .formtitlebar {
   display: flex;
@@ -24,22 +28,41 @@
   flex-direction: column;
   align-items: center;
   background: lightgrey;
-  padding: 75px 20px 20px;
+  padding: 90px 20px;
   height: 100%;
   width: 100%;
   justify-content: center;
   border-style: dashed;
-  border-left: none;
   border-right: none;
+  border-left: none;
   border-color: grey;
 
 
 }
+.photoupload2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: lightgrey;
+    padding: 90px 20px;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    border-style: dashed;
+    border-right: none;
+    border-color: grey;
+  }
+.photouploadContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
 .bottombar {
   display: flex;
   justify-content: space-between;
-  padding: 30px 10px 30px;
-  width: 100%;
+  margin-top: 8%;
+  margin-left: 85%;
+  /* width: 100%; */
   height: 100%;
 
 }
@@ -68,7 +91,7 @@
   flex-direction: column;
   align-items: flex-start;
   background: white;
-  padding: 30px 5px 0px;
+  padding: 30px 5px 20px;
   height: 100%;
   width: 100%;
   border-style: dashed;
@@ -87,14 +110,34 @@
   padding: 0px 20px 30px;
 }
 
+
+#title2 {
+    border: none;
+    font-family: "Helvetica Neue","HelveticaNeue","Helvetica","Arial","sans-serif";
+    font-size: 20px;
+    float: left;
+    background: white;
+    padding: 0px 20px 10px;
+  }
+
 .yourtext {
   border: none;
   font-family: "Helvetica Neue","HelveticaNeue","Helvetica","Arial","sans-serif";
   float: left;
   font-size: 20px;
   background: white;
-  padding: 0px 20px 0px;
+  padding: 0px 0px 0px;
+  width: 70%;
 }
+.yourtext2 {
+    border: none;
+    font-family: "Helvetica Neue","HelveticaNeue","Helvetica","Arial","sans-serif";
+    float: left;
+    font-size: 15px;
+    background: white;
+    margin-top: 2%;
+    width: 70%;
+  }
 
 button {
   cursor: pointer;
@@ -105,5 +148,96 @@ button {
 }
 
 #whatever {
-  padding: 75px 0px 75px;
+  margin-bottom: 10%;
+}
+
+
+.photoicon {
+    color: red;
+}
+
+.quoteicon {
+    color: orange;
+}
+
+.icontext-text {
+    color: black;
+    font-weight: 425;
+}
+
+.icontext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.postedpic {
+    width: 300px;
+    height: 200px;
+    /* margin: 10%; */
+}
+
+.yourtags {
+    border: none;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.yourtags1 {
+    border: none;
+    margin-left: 0%;
+    margin-top: 5%;
+    width: 70%;
+}
+
+.yourtags2 {
+    border: none;
+    margin-left: 0%;
+    margin-top: 5%;
+    width: 70%;
+}
+
+.taglist {
+    padding: 20px;
+}
+
+.taglist1 {
+    padding: 20px;
+}
+.taglist2 {
+    padding: 20px;
+}
+
+.tags2 {
+    font: Favorit;
+    font-size: 12px;
+    color: #000000A6;
+    background-color: #E1ECF4;
+    padding: 5px;
+    margin-left: 20px;
+    cursor: pointer;
+
+}
+
+.phototags {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+#taginput {
+    margin-bottom: 5%;
+}
+
+
+
+#quote {
+    font: 34px Georgia;
+    border: none;
+    padding: 0px 20px 10px;
+    margin-bottom: 5%;
+
+    /* padding-right: 20px;
+    padding-bottom: 20px; */
 }

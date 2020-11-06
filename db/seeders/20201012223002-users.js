@@ -18,6 +18,7 @@ module.exports = {
       r({ username: 'guyfieri', email: 'flavor@example.com', hashedPassword: createPassword() }),
       r({ username: 'chefgordon', email: 'grams@example.com', hashedPassword: createPassword() }),
       r({ username: 'fishflay', email: 'bflay@example.com', hashedPassword: createPassword() }),
+      r({ username: 'simoncarroll', email: 'snc40@georgetown.edu', hashedPassword: createPassword() }),
     ]);
   },
 

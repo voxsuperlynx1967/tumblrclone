@@ -22,19 +22,21 @@ export const fetchPosts = () => {
     const res = await fetch(`/api/posts`); // Using proxy in our package.json,
     // we're able to set the path to simply '/tweets'
     const data = await res.json();
-    dispatch(receivePosts(data.posts));
+    console.log(data)
+    dispatch(receivePosts(data));
   };
 };
 
-export const createPost = ( postType, userId, mediaLink ) => {
+export const createPost = ( postType, userId, title, text, mediaLink, caption, reblogUserId, tagList ) => {
   return async (dispatch) => {
+    debugger
     const res = await fetch(`/api/posts`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
         "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
       },
-      body: JSON.stringify({ postType, userId, mediaLink  })
+      body: JSON.stringify({ postType, userId, title, text, mediaLink, caption, reblogUserId, tagList  })
     });
 
 

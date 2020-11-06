@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/auth';
 import { Redirect } from 'react-router-dom'
-import { Container } from '@material-ui/core';
+import { Container} from '@material-ui/core';
 import YumblrLogo from '../components/auth/YumblrLogo';
 import AuthSubmitButton from '../components/auth/AuthSubmitButton';
 import './LoginPage.css';
@@ -17,6 +17,11 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+  },
+  MuiButton: {
+    label: {
+      color: "white",
+    }
   },
 })
 
@@ -39,7 +44,7 @@ const theme = createMuiTheme({
         textTransform: "none",
         font: "15px Helvetica Neue",
         fontWeight: "bold",
-        padding: "10px"
+        padding: "10px",
       }
     }
   },
@@ -48,7 +53,7 @@ const theme = createMuiTheme({
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const currentUserId = useSelector(state => state.auth.id);
+  const currentUser = useSelector(state => state.auth);
   const dispatch = useDispatch();
   const classes = useStyles();
   const history = useHistory();
@@ -66,7 +71,7 @@ function LoginPage() {
 
 
 
-  if (currentUserId) return <Redirect to="/dashboard" />;
+  if (currentUser.id || currentUser.user) return <Redirect to="/dashboard" />;
   return (
     <>
       <div class="login-wrapper">
