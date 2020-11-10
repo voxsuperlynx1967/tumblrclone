@@ -10,7 +10,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import PersonIcon from '@material-ui/icons/Person';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { logout } from '../store/auth';
-import { fetchPostsById } from '../store/post';
+import { fetchPostsByTagId } from '../store/post';
+import { fetchTagById } from '../store/tag';
 import { useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import './Dashboard.css';
@@ -27,6 +28,7 @@ import NavBar from '../components/NavBar';
 import { useParams } from "react-router-dom";
 import { Container } from '@material-ui/core';
 import {NavLink} from 'react-router-dom';
+import { Route53Resolver } from 'aws-sdk';
 
 const theme = createMuiTheme({
   overrides: {
@@ -123,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Blog() {
+export default function TagBlog() {
   let { id } = useParams();
   const currentUser = useSelector(state => state.auth);
   const classes = useStyles();
@@ -134,9 +136,13 @@ export default function Blog() {
     dispatch(fetchLikes(currentUserId));
   }, [dispatch, currentUserId]);
   useEffect(() => {
-    dispatch(fetchPostsById(id));
+    dispatch(fetchPostsByTagId(id));
+  }, [dispatch, id]);
+  useEffect(() => {
+    dispatch(fetchTagById(id));
   }, [dispatch, id]);
   const post = useSelector(state => state.post);
+  const tag = useSelector(state => state.tag);
   const postlist = post.posts
   console.log(postlist)
 
@@ -154,29 +160,15 @@ export default function Blog() {
 
   }
 
-  const renderactions = () => {
-    // console.log(currentUserId, id)
-    if (currentUserId === Number(id)) {
-        console.log(currentUserId, id)
-        return (
-            <BlogActionsBar/>
-        )
-    } else {
-        return (
-            <Container classes={{ root: classes.container }}>
-                <div className="me">{postlist ? (postlist[0].Poster ? postlist[0].Poster.username : "username") : "username"}.tumblr</div>
-            </Container>
-        )
-    }
-  }
-
 
   return (
     <>
       <div className="page">
 
         <NavBar/>
-        {renderactions()}
+        <Container classes={{ root: classes.container }}>
+           <div className="me"> #{tag ? (tag[0] ? tag[0].title : "#tag") : "#tag"}</div>
+        </Container>
         {/* <div className="postsContainer"> */}
             <div id ="posts">
                 {postrender()}

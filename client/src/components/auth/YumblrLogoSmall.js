@@ -3,7 +3,7 @@ import logo from "../images/yumblerlogowhitereal.png";
 
 function YumblrLogoSmall() {
   return (
-    <img src={logo} height="32px"/>
+    <img className="yl" src={logo} height="32px"/>
   )
 }
 

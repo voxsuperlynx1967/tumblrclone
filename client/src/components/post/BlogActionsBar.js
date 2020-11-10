@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: "0px",
     width: "50%",
-    height: "70%",
+    height: "60%",
   },
   muiButton: {
     background: "lightblue",
@@ -285,7 +285,7 @@ const handleKeyUp2 = (e) => {
                     value={title}
                     onChange={e => setTitle(e.target.value)}
                     id="title"/>
-                    <textarea
+                    <input
                     placeholder="Your text here"
                     class="yourtext"
                     value={text}

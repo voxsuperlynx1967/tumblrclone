@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { Tag, Tag_Post, Post } = require("../../db/models");
+const { Tag, Tag_Post, Post, User } = require("../../db/models");
 const { requireUser } = require("../util/auth");
 const {
   jwtConfig: { expiresIn },
@@ -15,13 +15,25 @@ router.get('/', asyncHandler(async function (req, res) {
     include: [
         {
           model: Tag,
-          attributes: ['title']
+          attributes: ['id', 'title']
         },
       ]
   });
 
   res.json({ tags });
 }));
+
+router.get('/:id', asyncHandler(async function (req, res) {
+    const id = req.params.id
+    const tag = await Tag.findAll({
+      where: {
+          id: id
+      }
+    });
+
+    res.json({ tag });
+  }));
+
 
 
 

@@ -22,6 +22,8 @@ import BlogActionsBar from '../components/post/BlogActionsBar';
 import ImagePost from '../components/post/ImagePost';
 import { fetchLikes } from '../store/likes';
 // or
+
+import { NavLink} from 'react-router-dom'
 import { Avatar } from '@material-ui/core';
 import NavBar from '../components/NavBar';
 
@@ -114,7 +116,7 @@ export default function Dashboard() {
   useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
-  const currentUserId = Number.isInteger(currentUser) ? (currentUser.id ? currentUser.id : currentUser.user.id) : 1
+  const currentUserId = currentUser.id ? currentUser.id : 4
   useEffect(() => {
     dispatch(fetchLikes(currentUserId));
   }, [dispatch, currentUserId]);
@@ -157,10 +159,16 @@ export default function Dashboard() {
             <div className="blogsTitle">
                 Recommended Blogs
             </div>
+            <NavLink className="linkz" to={`/blogs/1`}>
             <span className="recblog"> <Avatar alt="Guy" src="https://yumblr.s3.amazonaws.com/guyfieri.jpeg" />
                 guyfieri</span>
+            </NavLink>
+            <NavLink className="linkz" to={`/blogs/3`}>
             <span className="recblog"><Avatar alt="Bobby" src="https://yumblr.s3.amazonaws.com/bobbyflay.jpg" />fishflay</span>
+            </NavLink>
+            <NavLink className="linkz" to={`/blogs/2`}>
             <span className="recblog"><Avatar alt="Gordon" src="https://yumblr.s3.amazonaws.com/chefgordon.jpg" />bigchef </span>
+            </NavLink>
 
         </div>
     </div>

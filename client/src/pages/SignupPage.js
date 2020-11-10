@@ -61,18 +61,19 @@ function SignupPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await dispatch(signup( email, password, username ));
-    history.push("/dashboard");
+    dispatch(signup( email, password, username ));
   }
 
   if (currentUser.id || currentUser.user) return <Redirect to="/dashboard" />;
   return (
     <div class="signup-wrapper">
       <SignupNavBar/>
+      <div id="errors-container"/>
       <Container
         classes={{ root: classes.container }}
         fixed
         maxWidth="sm">
+
         <YumblrLogo id="yumblrlogo1"/>
         <span id="bigspan">
           <span>Come for what you crave.
@@ -80,6 +81,7 @@ function SignupPage() {
           <span>Stay for what you devour.
           </span>
         </span>
+
         <form onSubmit={handleSubmit}>
           <ThemeProvider theme={theme}>
             <AuthTextField id="textfield1"
@@ -107,7 +109,7 @@ function SignupPage() {
           <NavLink id ="navtoexplore" to="/">
             <ExploreOutlinedIcon classes={{ root: classes.exploreIcon }}/>
             <span id="trending">
-              Here's what's trending
+              Join us to see what's trending
             </span>
           </NavLink>
         </div>
