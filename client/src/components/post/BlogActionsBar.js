@@ -142,17 +142,29 @@ const handleKeyUp2 = (e) => {
         }
       });
       const link = await res.data
+      debugger
       const g = document.querySelector(".photoupload2");
+      debugger
       g.style.paddingTop = "30px";
+      debugger
       g.style.paddingBottom = "30px";
+      debugger
       const p = document.getElementById("caption2");
+      debugger
       p.classList.remove("hidden");
+      debugger
       document.querySelector(".yourtags2").classList.remove("hidden")
+      debugger
       document.querySelector(".tagList2").classList.remove("hidden")
-      document.querySelector(".makeStyles-paper-13").style.height = "75%";
+      debugger
+      document.querySelector(".makeStyles-paper-23").style.height = "75%";
+      debugger
       document.getElementById("addmepic").classList.add("postedpic")
+      debugger
       setMediaLink(link.url)
+      debugger
       document.getElementById("hideme").classList.add("hidden")
+      debugger
     } catch (err) {
       if (err.response.status === 500) {
         console.log('There was a problem with the server')
