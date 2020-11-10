@@ -157,7 +157,7 @@ const handleKeyUp2 = (e) => {
       debugger
       document.querySelector(".tagList2").classList.remove("hidden")
       debugger
-      document.querySelector(".makeStyles-paper-23").style.height = "75%";
+      document.querySelector(".modalz1").style.height = "75%";
       debugger
       document.getElementById("addmepic").classList.add("postedpic")
       debugger
@@ -356,7 +356,7 @@ const handleKeyUp2 = (e) => {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <div className={`modalz1 ${classes.paper}`}>
             <div className = "tubmlrpoststyle">
               <div className = "formtitlebar">
                 <label>
@@ -456,7 +456,7 @@ const handleKeyUp2 = (e) => {
         }}
       >
         <Fade in={open2}>
-          <div className={classes.paper}>
+          <div className={`modalz2 ${classes.paper}`}>
             <div className = "tubmlrpoststyle">
               <div className = "formtitlebar">
                 <label>
