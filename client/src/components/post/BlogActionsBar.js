@@ -74,7 +74,7 @@ function BlogActionsBar() {
         e.preventDefault()
         let i = e.target.value
         if (i[0] === "#") {
-            i = i.substring(0);
+            i = i.substring(1);
         }
         console.log(i)
         tagList.push(i)
