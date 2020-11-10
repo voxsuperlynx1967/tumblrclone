@@ -238,6 +238,7 @@ export default function NavBar() {
                     color="inherit"
                     > <PersonIcon />
                     </IconButton>
+
                     <IconButton
                     edge="end"
                     aria-label="create a post"
@@ -245,7 +246,7 @@ export default function NavBar() {
                     aria-haspopup="true"
                     color="inherit"
                     >
-                    {/* <CreateIcon/> */}
+                    {/* <a class="fab fa-github icon fa-2x" target="_blank" rel="noopener noreferrer" href="https://github.com/voxsuperlynx1967"></a> */}
                     </IconButton>
 
 
