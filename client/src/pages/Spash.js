@@ -91,7 +91,7 @@ function Splash() {
               <NavLink id ="navtoexplore" to="/">
                 <ExploreOutlinedIcon classes={{ root: classes.exploreIcon }}/>
                 <span id="trending">
-                  Here's what's trending
+                  Join us to see what's trending
                 </span>
               </NavLink>
             </div>

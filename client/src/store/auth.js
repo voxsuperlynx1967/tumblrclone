@@ -32,10 +32,26 @@ export const login = (email, password) => {
     });
 
     res.data = await res.json();
-    if (res.ok) {
-      dispatch(setUser(res.data))
+    const { message } = res.data;
+    debugger
+    const errorsContainer = document.getElementById("errors-container2");
+    if (message) {
+        errorsContainer.style.display = "flex";
+        errorsContainer.style.justifyContent = "center";
+        errorsContainer.style.backgroundColor = "rgba(255, 0, 0, 0.4)";
+        errorsContainer.style.flexDirection = "row";
+        errorsContainer.style.border = "1px solid red"
+        errorsContainer.style.borderRadius = "5px";
+        const errorLi = document.createElement("li");
+        errorLi.innerHTML = message;
+        errorsContainer.appendChild(errorLi);
+
     }
-    return res;
+
+    if (res.ok) {
+        dispatch(setUser(res.data.user));
+    }
+
   }
 }
 
@@ -63,11 +79,30 @@ export const signup = (email, password, username) => {
       },
       body: JSON.stringify({ email, password, username})
     });
-    const data = await res.json();
+    res.data = await res.json();
+    const { error } = res.data;
     debugger
-    dispatch(setUser(data));
-    res.data = data;
-    return res;
+    const errorsContainer = document.getElementById("errors-container");
+    errorsContainer.innerHTML = "";
+    errorsContainer.style.display = "none";
+    if (error) {
+        errorsContainer.style.display = "flex";
+        errorsContainer.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+        errorsContainer.style.flexDirection = "column";
+        errorsContainer.style.border = "1px solid red"
+        errorsContainer.style.borderRadius = "5px";
+        const errors = error.errors;
+        for (let error1 of errors) {
+        const errorLi = document.createElement("li");
+        errorLi.innerHTML = error1;
+        errorsContainer.appendChild(errorLi);
+        }
+    }
+
+    if (res.ok) {
+        dispatch(setUser(res.data.user));
+    }
+
   }
 }
 

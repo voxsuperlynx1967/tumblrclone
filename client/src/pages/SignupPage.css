@@ -3,11 +3,12 @@ svg {
 }
 
 .signup-wrapper {
-  background-image: url("../components/images/guyfieri.gif");
+  background-image: url("https://storage.googleapis.com/gd-wagtail-prod-assets/original_images/good-design_inline_orange.gif");
   background-repeat: no-repeat;
   background-size: cover;
+
   background-position: center;
-  height: 100vw;
+  height: 100vh;
   width: 100%;
 }
 
@@ -59,4 +60,18 @@ span {
   padding-top: 10px;
   display: flex;
   text-decoration: none;
+}
+
+
+#errors-container {
+    color: black;
+    width: 30%;
+    position: absolute;
+    top: 8%;
+    left: 35%;
+    list-style: none;
+    padding: 1%;
+
+
+
 }

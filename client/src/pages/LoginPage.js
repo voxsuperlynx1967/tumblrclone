@@ -60,13 +60,13 @@ function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await dispatch(login(email, password));
-    history.push("/dashboard");
+    dispatch(login(email, password));
+    // history.push("/dashboard");
   }
   const handleDemoSubmit = async (e) => {
     e.preventDefault();
-    await dispatch(login("flavor@example.com", "password"));
-    history.push("/dashboard");
+    dispatch(login("snc40@georgetown.edu", "password"));
+    // history.push("/dashboard");
   }
 
 
@@ -76,6 +76,7 @@ function LoginPage() {
     <>
       <div class="login-wrapper">
         <LoginNavBar/>
+        <div id="errors-container2"></div>
 
         <Container
           classes={{ root: classes.container }}

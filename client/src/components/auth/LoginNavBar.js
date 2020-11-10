@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import '../../pages/Dashboard.css';
 import YumblrLogoSmall from './YumblrLogoSmall';
 import Button from '@material-ui/core/Button';
+import { NavLink } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -89,7 +90,9 @@ export default function LoginNavBar() {
     <div className={classes.grow}>
       <AppBar id="yumblrbar1" position="static">
         <Toolbar id="yumblrbar2" >
+        <NavLink to="/">
         <YumblrLogoSmall class="yumblrlogo"/>
+        </NavLink>
           <Button
             onClick={signupclick}
           >Sign up</Button>

@@ -27,6 +27,26 @@ export const fetchPosts = () => {
   };
 };
 
+export const fetchPostsById = (id) => {
+    return async (dispatch) => {
+      const res = await fetch(`/api/posts/${id}`); // Using proxy in our package.json,
+      // we're able to set the path to simply '/tweets'
+      const data = await res.json();
+      console.log(data)
+      dispatch(receivePosts(data));
+    };
+  };
+
+  export const fetchPostsByTagId = (id) => {
+    return async (dispatch) => {
+      const res = await fetch(`/api/posts/tag/${id}`); // Using proxy in our package.json,
+      // we're able to set the path to simply '/tweets'
+      const data = await res.json();
+      console.log(data)
+      dispatch(receivePosts(data));
+    };
+  };
+
 export const createPost = ( postType, userId, title, text, mediaLink, caption, reblogUserId, tagList ) => {
   return async (dispatch) => {
     debugger

@@ -18,7 +18,7 @@ import YumblrLogoSmall from '../components/auth/YumblrLogoSmall';
 import CreateIcon from '@material-ui/icons/Create';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-
+import { NavLink } from 'react-router-dom'
 const theme = createMuiTheme({
     overrides: {
       MuiButton: {
@@ -201,7 +201,8 @@ export default function NavBar() {
             </div>
 
         </div> */}
-            <span className="myblog">{currentUser.username}</span>
+
+            <span className="myblog"><NavLink className="linkz" to={`/blogs/${currentUser.id}`}>{currentUser.username}</NavLink></span>
         </div>
         </Menu>
     );
@@ -210,7 +211,9 @@ export default function NavBar() {
     <div className={classes.grow}>
             <AppBar id="yumblrbar" position="static">
                 <Toolbar>
+                <NavLink to="/dashboard">
                 <YumblrLogoSmall class="yumblrlogo"/>
+                </NavLink>
                 {/* <div className={classes.search}>
                     <div className={classes.searchIcon}>
                     <SearchIcon />
@@ -241,7 +244,8 @@ export default function NavBar() {
                     aria-controls={menuId}
                     aria-haspopup="true"
                     color="inherit"
-                    > <CreateIcon/>
+                    >
+                    {/* <CreateIcon/> */}
                     </IconButton>
 
 

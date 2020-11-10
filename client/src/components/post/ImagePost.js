@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
+import { NavLink, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
@@ -14,7 +15,9 @@ import { fetchPosts } from '../../store/post';
 
 
 
+
 function ImagePost({ post }) {
+  const history = useHistory();
   const dispatch = useDispatch();
 //   const [title, setTitle] = useState(`${post.title}`);
 //   const [text, setText] = useState(`${post.text}`);
@@ -63,7 +66,7 @@ function ImagePost({ post }) {
         if (post.Tags.length > 0) {
 
             for (let i = 0; i < post.Tags.length; i++) {
-                list1.push(<li>#{post.Tags[i].Tag.title}</li>)
+                list1.push(<li><NavLink className="linkz" to={`/tags/${post.Tags[i].Tag.id}`}>#{post.Tags[i].Tag.title}</NavLink></li>)
             }
         }
         return list1
@@ -89,7 +92,9 @@ function ImagePost({ post }) {
         body: JSON.stringify({ postId, userId})
 
     });
+    // upcount()
     dispatch(fetchLikes(userId));
+
   }
 
   const delpost = async () => {
@@ -115,6 +120,7 @@ function ImagePost({ post }) {
         body: JSON.stringify({ postId, userId })
 
     });
+    // downcount()
     dispatch(fetchLikes(userId));
   }
   const likerender = () => {
@@ -163,16 +169,22 @@ function ImagePost({ post }) {
             <div className = "formtitlebar2">
                 <div className="reblogsection">
                     <label>
+                    <NavLink className="linkz" to={`/blogs/${post.Poster.id}`}>
                     {post.Poster.username}
+                    </NavLink>
                     <svg className = "bottombuttons2 reblogtiny" viewBox="0 0 17 18.1" width="21" height="5" fill="var(--gray-65)"><path d="M12.8.2c-.4-.4-.8-.2-.8.4v2H2c-2 0-2 2-2 2v5s0 1 1 1 1-1 1-1v-4c0-1 .5-1 1-1h9v2c0 .6.3.7.8.4L17 3.6 12.8.2zM4.2 17.9c.5.4.8.2.8-.3v-2h10c2 0 2-2 2-2v-5s0-1-1-1-1 1-1 1v4c0 1-.5 1-1 1H5v-2c0-.6-.3-.7-.8-.4L0 14.6l4.2 3.3z"></path></svg>
+                    <NavLink className="linkz" to={`/blogs/${post.Reblog.id}`}>
                     {post.Reblog.username}
+                    </NavLink>
                     </label>
                 </div>
                 <MoreHorizIcon />
             </div>
             <div className = "formtitlebar">
             <label>
-              {post.Reblog.username}
+                <NavLink className="linkz" to={`/blogs/${post.Reblog.id}`}>
+                {post.Reblog.username}
+                 </NavLink>
             </label>
             {/* <MoreHorizIcon /> */}
             </div>
@@ -183,7 +195,9 @@ function ImagePost({ post }) {
           return (
             <div className = "formtitlebar">
             <label>
+              <NavLink className="linkz" to={`/blogs/${post.Poster.id}`}>
               {post.Poster.username}
+              </NavLink>
             </label>
             <MoreHorizIcon />
              </div>
@@ -221,8 +235,38 @@ function ImagePost({ post }) {
     }
     debugger
     await dispatch(createPost( postType, userId, title, text, mediaLink, caption, reblogUserId, tagList ));
+
     dispatch(fetchPosts())
+    if (window.location.pathname !== "/dashboard") {
+        history.push("/dashboard")
+    }
+
   }
+
+//   const upcount = async () => {
+//     const vote = 1
+//     await fetch(`/api/posts/${postId}/noteCount`, {
+//         method: 'put',
+//         headers: {
+//             "Content-Type": "application/json",
+//             "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+//         },
+//         body: JSON.stringify({ vote })
+//     });
+//     dispatch(fetchPosts())
+// }
+// const downcount = async () => {
+//     const vote = -1
+//     await fetch(`/api/posts/${postId}/noteCount`, {
+//         method: 'put',
+//         headers: {
+//             "Content-Type": "application/json",
+//             "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+//         },
+//         body: JSON.stringify({ vote })
+//     });
+//     dispatch(fetchPosts())
+// }
   return (
     <div>
       <div className="box">

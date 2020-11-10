@@ -158,3 +158,9 @@ svg.bottombuttons2 {
     flex-direction: row;
     justify-content: space-between;
 }
+
+
+.linkz {
+    text-decoration: none;
+    color: inherit;
+}

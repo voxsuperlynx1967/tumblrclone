@@ -32,3 +32,14 @@ form {
 #textfield2 {
   border-radius: 0px 0px 5px 5px;
 }
+
+#errors-container2 {
+    color: black;
+    width: 25%;
+    position: absolute;
+    top: 20%;
+    left: 37%;
+    list-style: none;
+    padding: 1%;
+
+}
