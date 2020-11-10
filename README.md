@@ -1,4 +1,4 @@
-# Yubmlr Wiki
+# Yumblr Wiki
 
 Welcome to the Yumblr Wiki!
 
