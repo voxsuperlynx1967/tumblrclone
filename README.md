@@ -53,7 +53,7 @@ After receiving file input from the user, the frontend passes the file to an axi
 | Get            | /login            |  User login form     |
 | Post           | /login            |  Authenticate user   |
 | Get            | /dashboard        |  View posts/likes/following and the various post forms |
-| Post           | /dashboard        |  Create a text, respost, quote, or image post (either uploaded to AWS or passed through a link) |
+| Post           | /dashboard        |  Create a text, repost, quote, or image post (either uploaded to AWS or passed through a link) |
 | Post           | /dashboard        |  Create a tag_post object and, potentially, a new tag |
 | Post           | /dashboard        |  Like a user's posts and reposts |
 | Get            | /blogs/:id        |  View a user's posts and reposts |
