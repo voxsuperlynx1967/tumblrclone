@@ -4,7 +4,7 @@ Welcome to the Yumblr Wiki!
 
 This is a full-stack web application built using React, Redux, Express, Sequelize, and Javascript.
 
-This application is currently hosted on Heroku! [Yumblr](https://yumblr-react.herokuapp.com/home)
+This application is currently hosted on Heroku! [Yumblr](https://yumblr-react.herokuapp.com)
 
 <br />
 
