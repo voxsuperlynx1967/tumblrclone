@@ -35,11 +35,11 @@ This application is currently hosted on Heroku! [Yumblr](https://yumblr-react.he
 
 The following snippet displays a portion the backend route for storing a photo in AWS and retrieving the link to store in the relevant posts's "mediaLink."
 
-<img src="https://yumblr.s3.amazonaws.com/Screen+Shot+2020-11-11+at+11.53.17+AM.png"
+<img src="https://yumblr.s3.amazonaws.com/Screen+Shot+2020-11-11+at+11.53.17+AM.png">
 
 After receiving file input from the user, the frontend passes the file to an axios post request. Then, after receiving the link to the AWS object and setting the relevant post's mediaLink, the frontend immediately resizes the post panel in order to display the image to the user; in this manner, a user may examine their post before proceeding.
 
-<img src="https://yumblr.s3.amazonaws.com/Screen+Shot+2020-11-11+at+11.55.44+AM.png"
+<img src="https://yumblr.s3.amazonaws.com/Screen+Shot+2020-11-11+at+11.55.44+AM.png">
 
 <br />
 
