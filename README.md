@@ -31,23 +31,31 @@ This application is currently hosted on Heroku! [Yumblr](https://yumblr-react.he
 
 <br />
 
+## AWS Photo Posting, Link Retrieval, and Responsive UI:
+
+The following snippet displays a portion the backend route for storing a photo in AWS and retrieving the link to store in the relevant posts's "mediaLink."
+
+<img src="https://yumblr.s3.amazonaws.com/Screen+Shot+2020-11-11+at+11.53.17+AM.png"
+
+After receiving file input from the user, the frontend passes the file to an axios post request. Then, after receiving the link to the AWS object and setting the relevant post's mediaLink, the frontend immediately resizes the post panel in order to display the image to the user; in this manner, a user may examine their post before proceeding.
+
+<img src="https://yumblr.s3.amazonaws.com/Screen+Shot+2020-11-11+at+11.55.44+AM.png"
+
 <br />
 
-<!-- ## RESTful EndPoints: -->
+## EndPoints:
 
-<!-- | Method         | Path              | Purpose              |
+| Method         | Frontend Path     | Purpose              |
 |---             |---                |---                   |
-| Get            | /                 |  Home Page           |
-| Post           | /users            |  Create User Account |
-| Get            | /users/:id        |  Access User Account |
-| Get            | /users/sign-up    |  Create User Form    |
-| Get            | /users/sign-in    |  User Login Form     |
-| Post           | /users/sign-in    |  Authenticate User   |
-| Get            | /users/:id/update |  Form to Update Account Details |
-| Get            | /users/:id/jobs   |  View a list of past/present jobs |
-| Patch          | /users/:id        |  Update User Account |
-| Delete         | /users/:id        |  Delete User Account |
-| Get            | /jobTypes         |  Show All job Types  |
-| Get            | /jobTypes/:id     |  Show All taskers for job Type |
-| Get            | /jobTypes/:id/:taskerId |  Show details about tasker  |
-| Post           | /jobs             |  Create new job (user & tasker)  | -->
+| Get            | /                 |  Home page           |
+| Get            | /signup           |  User signup form    |
+| Post           | /signup           |  Create user account |
+| Get            | /login            |  User login form     |
+| Post           | /login            |  Authenticate user   |
+| Get            | /dashboard        |  View posts/likes/following and the various post forms |
+| Post           | /dashboard        |  Create a text, respost, quote, or image post (either uploaded to AWS or passed through a link) |
+| Post           | /dashboard        |  Create a tag_post object and, potentially, a new tag |
+| Post           | /dashboard        |  Like a user's posts and reposts |
+| Get            | /blogs/:id        |  View a user's posts and reposts |
+| Post           | /blogs/:id        |  Like a user's post |
+| Post           | /tags/:id         |  View all posts under a specific tag |
